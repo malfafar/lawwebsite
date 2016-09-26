@@ -1,0 +1,168 @@
+<%= render partial: 'general_partials/title', locals: { section_title:  t('strings.header.profile.title'), fa_icon: "fa-user" } %>
+
+
+
+  <div class="personal_informations">
+
+    <h2> Informações Pessoais </h2>
+    <div class="info_block">
+      <h4><%= t 'activerecord.attributes.member.name' %></h4>
+      <p>
+        <%= current_member.name %>
+      </p>
+    </div>
+
+    <div class="info_block">
+      <h4><%= t 'activerecord.attributes.member.membership_number' %></h4>
+      <p>
+        <%= !current_member.membership_number.blank? ?  current_member.membership_number : t('strings.no_info') %>
+      </p>
+    </div>
+    <div class="info_block">
+      <h4><%= t 'activerecord.attributes.member.role' %></h4>
+      <p>
+        <%= get_role(current_member.role) %>
+      </p>
+    </div>
+    <div class="info_block">
+      <h4><%= t 'activerecord.attributes.member.email' %></h4>
+      <p>
+        <%= current_member.email %>
+      </p>
+    </div>
+    <div class="info_block">
+      <h4><%= t 'activerecord.attributes.member.naturality' %></h4>
+      <p>
+        <%= current_member.naturality %>
+      </p>
+    </div>
+
+    <% unless current_member.birthday.blank? %>
+      <div class="info_block">
+        <h4><%= t 'activerecord.attributes.member.birthday' %></h4>
+        <p>
+          <%= current_member.birthday.strftime("%d/%m/%Y") %>
+        </p>
+      </div>
+    <% end %>
+    <div class="info_block">
+      <h4><%= t 'activerecord.attributes.member.residence' %></h4>
+      <p>
+        <%= current_member.residence %>
+      </p>
+    </div>
+    <div class="info_block">
+      <h4><%= t 'activerecord.attributes.member.zip_code' %></h4>
+      <p>
+        <%= !current_member.zip_code.blank? ?  current_member.zip_code : t('strings.no_info')%>
+      </p>
+    </div>
+    <div class="info_block">
+      <h4><%= t 'activerecord.attributes.member.phone' %></h4>
+      <p>
+        <%= !current_member.phone.blank? ? current_member.phone : t('strings.no_info')%>
+      </p>
+    </div>
+  </div>
+
+  <div class="registry_informations">
+
+    <h2> Informações de Conservatória </h2>
+    <div class="info_block">
+      <h4><%= t 'activerecord.attributes.member.office' %></h4>
+      <p>
+        <%= current_member.office %>
+      </p>
+    </div>
+
+
+    <div class="info_block">
+      <h4><%= t 'activerecord.attributes.member.office_email' %></h4>
+      <p>
+        <%= current_member.office_email %>
+      </p>
+    </div>
+
+    <div class="info_block">
+      <h4><%= t 'activerecord.attributes.member.office_address' %></h4>
+      <p>
+        <%= current_member.office_address %>
+      </p>
+    </div>
+
+    <div class="info_block">
+      <h4><%= t 'activerecord.attributes.member.office_zipcode' %></h4>
+      <p>
+        <%= current_member.office_zipcode %>
+      </p>
+    </div>
+
+    <div class="info_block">
+      <h4><%= t 'activerecord.attributes.member.attached_registry' %></h4>
+      <p>
+        <%= t(current_member.attached_registry.to_s) %>
+      </p>
+    </div>
+
+    <div class="info_block">
+      <h4><%= t 'activerecord.attributes.member.office_phone' %></h4>
+      <p>
+        <%= current_member.office_phone %>
+      </p>
+    </div>
+
+    <div class="info_block">
+      <h4><%= t 'activerecord.attributes.member.office_fax' %></h4>
+      <p>
+        <%= !current_member.office_fax.blank? ? current_member.office_fax : t('strings.no_info') %>
+      </p>
+    </div>
+
+    <div class="info_block">
+      <h4><%= t 'activerecord.attributes.member.location_class' %></h4>
+      <p>
+        <%= current_member.location_class %>
+      </p>
+    </div>
+  </div>
+
+  <div class="carreer_informations">
+    <h2> Informações de Carreira </h2>
+    <div class="info_block">
+      <h4><%= t 'activerecord.attributes.member.career_start_date' %></h4>
+      <p>
+        <%= !current_member.career_start_date.blank? ? current_member.career_start_date.strftime("%d/%m/%Y") : t('strings.no_date') %>
+      </p>
+    </div>
+
+    <div class="info_block">
+      <h4><%= t 'activerecord.attributes.member.personal_class' %></h4>
+      <p>
+        <%= current_member.personal_class %>
+      </p>
+    </div>
+
+    <div class="info_block">
+      <h4><%= t 'activerecord.attributes.member.class_promotion_date' %></h4>
+      <p>
+        <%= !current_member.class_promotion_date.blank? ? current_member.class_promotion_date.strftime("%d/%m/%Y") : t('strings.no_date') %>
+      </p>
+    </div>
+
+    <div class="info_block">
+      <h4><%= t 'activerecord.attributes.member.practice_level' %></h4>
+      <p>
+        <%= current_member.practice_level %>
+      </p>
+    </div>
+
+    <div class="info_block">
+      <h4><%= t 'activerecord.attributes.member.level_start_date' %></h4>
+      <p>
+        <%= !current_member.level_start_date.blank? ? current_member.level_start_date.strftime("%d/%m/%Y") : t('strings.no_date') %>
+      </p>
+    </div>
+  </div>
+  <div class="edit_link center">
+    <%= link_to "EDITAR PERFIL",edit_member_registration_path, class: "secundary_button large_button" %><br>
+  </div>

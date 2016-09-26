@@ -1,0 +1,27 @@
+<div class="box-body">
+  <%= form_for(@fee) do |f| %>
+    <% if @fee.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@fee.errors.count, "error") %> prohibited this fee from being saved:</h2>
+
+        <ul>
+        <% @fee.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="form-group">
+      <%= f.label :value %><br>
+      <%= f.text_field :value, class: 'form-control'  %>
+    </div>
+    <div class="form-group">
+      <%= f.label :name %><br>
+      <%= f.text_field :name, class: 'form-control'  %>
+    </div>
+
+    <div class="box-footer">
+      <%= f.submit  class: "btn btn-primary" %>
+    </div>
+  <% end %>

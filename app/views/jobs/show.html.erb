@@ -1,0 +1,35 @@
+<%= render partial: 'admin_partials/show/header', locals: { section_title:  t("controller."+params[:controller]),
+                                                  section_sub_title:  t("action."+params[:action]),
+                                                  page_title: t("strings.job.show")  } %>
+
+<%= render "admin_partials/errors/notices" %>
+
+
+          <strong><%= t 'activerecord.attributes.job.name' %></strong>
+          <p class="text-muted">
+            <%= @job.name %>
+          </p>
+
+          <strong><%= t 'activerecord.attributes.job.description' %></strong>
+          <p class="text-muted">
+            <%= @job.description %>
+          </p>
+
+          <strong><%= t 'activerecord.attributes.job.author' %></strong>
+          <p class="text-muted">
+            <%= @job.author %>
+          </p>
+
+          <strong><%= t 'activerecord.attributes.job.category' %></strong>
+          <p class="text-muted">
+            <%= @job.category %>
+          </p>
+
+          <% if @job.document.exists? %>
+            <strong>Documento:</strong>
+            <p class="text-muted">
+              <%= link_to @job.document_file_name, @job.document.url %>
+            </p>
+          <% end %>
+        </div><!-- /.box-body -->
+<%= render partial: 'admin_partials/show/footer', locals: {edit_path: edit_job_path(@job), back_path: jobs_path}%>

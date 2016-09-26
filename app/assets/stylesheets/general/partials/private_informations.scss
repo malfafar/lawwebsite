@@ -1,0 +1,53 @@
+
+@include breakpoint($xs)
+{
+  .private_informations
+  {
+    @include span(12 of 12);
+    padding: 15px 0px 30px 0;
+    text-align: center;
+    border-bottom: 1px solid $light_gray;
+    .download_link
+    {
+      // float: right;
+    }
+
+    .informations
+    {
+      // float: left;
+
+      p
+      {
+        color: $text_gray;
+        // display: inline;
+      }
+
+      p.title
+      {
+        font-size: 16px;
+        font-weight: $bold_font;
+        color: $text_dark;
+      }
+    }
+  }
+}
+
+@include breakpoint($medium)
+{
+  .private_informations
+  {
+    @include span(12 of 12);
+    text-align: left;
+    .download_link
+    {
+      float: right;
+    }
+
+    .informations
+    {
+      float: left;
+
+    }
+  }
+
+}

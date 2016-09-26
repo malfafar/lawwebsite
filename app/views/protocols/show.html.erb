@@ -1,0 +1,19 @@
+<%= render partial: 'admin_partials/show/header', locals: { section_title:  t("controller."+params[:controller]),
+                                                  section_sub_title:  t("action."+params[:action]),
+                                                  page_title: t("strings.protocol.show")  } %>
+
+<%= render "admin_partials/errors/notices" %>
+
+          <strong><%= t 'activerecord.attributes.protocol.name' %></strong>
+
+            <%= @protocol.name %>
+          </p>
+
+          <strong><%= t 'activerecord.attributes.protocol.description' %></strong>
+          <p>
+            <%= simple_format(@protocol.description) %>
+          </p>
+
+        </div>
+
+<%= render partial: 'admin_partials/show/footer', locals: {edit_path: edit_protocol_path(@protocol), back_path: benefit_path(@protocol.benefit)}%>

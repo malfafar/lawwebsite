@@ -1,0 +1,25 @@
+<%# Stylesheets for this page are on partials/news.scss %>
+
+<%= render partial: 'general_partials/title', locals: { section_title: t('strings.header.posts.title'), fa_icon: "fa-newspaper-o" } %>
+<div class="posts">
+  <% @posts.each do |post| %>
+    <div class="news_post">
+      <div class="image_wrapper">
+        <%= image_tag post.image.url(:medium) %>
+      </div>
+
+      <h4><%= post.title %></h4>
+      <p class="news_description">
+        <%= truncate(post.description, length: 100) %>
+      </p>
+
+
+      <%= link_to "ver mais", gp_post_path(post), class: "right" %>
+
+    </div>
+  <% end %>
+</div>
+
+<div class="custom_pagination center">
+  <%= paginate @posts %>
+</div>

@@ -1,0 +1,34 @@
+<%= render partial: 'admin_partials/index/header', locals: { section_title:  t("controller."+params[:controller]),
+                                                  section_sub_title:  t("action."+params[:action]),
+                                                  page_title: t("strings.chapter.listing") ,
+                                                  new_path: new_chapter_path,
+                                                  new_button_name: t("strings.chapter.new"),
+                                                  search_form_path: chapters_path } %>
+
+<%= render "admin_partials/errors/notices" %>
+
+        <div class="box-body table-responsive no-padding">
+          <%= render 'layouts/admin_notices' %>
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th><%= t 'activerecord.attributes.chapter.title' %></th>
+                <th><%= t 'activerecord.attributes.chapter.number' %></th>
+                <th><%= t 'activerecord.attributes.chapter.text' %></th>
+                <th colspan="3"></th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <% @chapters.each do |chapter| %>
+                <tr>
+                  <td><%= chapter.title %></td>
+                  <td><%= chapter.number %></td>
+                  <td><%= truncate(chapter.text) %></td>
+                  <%= render partial: 'admin_partials/index/buttons', locals: { object: chapter, edit_path: edit_chapter_path(chapter) } %>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div><!-- /.box-body -->
+<%= render partial: 'admin_partials/index/footer', locals: { paginate_object: @chapters} %>

@@ -1,0 +1,30 @@
+pt:
+  bootsy:
+    action:
+      refresh: Actualizar
+      destroy: Apagar
+      close: Fechar
+      load: Carregar
+      or: ou
+      upload: Carregar nova imagem
+      submit_upload: Submeter
+      enter_image_url: Introduza uma imagem a partir de um link de web
+    image_gallery: Galeria de imagens
+    image:
+      s: Imagem
+      p: Imagens
+      size: Tamanho
+      large: Grande
+      medium: Média
+      small: Pequena
+      original: Original
+      new: Nova imagem
+      confirm:
+        destroy: Tem a certeza que deseja eliminar esta imagem?
+      position:
+        left: Esquerda
+        right: Direita
+        inline: Em linha
+    no_images_uploaded: Não há imagens carregadas.
+    js:
+      alert_unsaved: Existem alterações que não foram gravadas.

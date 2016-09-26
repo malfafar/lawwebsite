@@ -1,0 +1,53 @@
+<nav class="menu">
+  <div class="logo_burgermenu"><%= link_to root_path, 'data-no-turbolink' => true do %> <%= image_tag("logo.png", :class => "logo") %> <% end %></div>
+  <%= fa_icon "bars", :class =>"burger" %>
+  <ul class="nav_list">
+    <%= link_to gp_about_path do %>
+      <li class="<%= is_class_active('about') %>">Apresentação</li>
+    <% end %>
+    <!-- Parceiros deverão ser um link junto ao footer. -->
+    <%#= link_to gp_partners_path do %>
+      <!-- <li  class="<%#= is_class_active(params[:action], 'partners') %>">Parceiros</li> -->
+    <%# end %>
+    <%= link_to gp_news_path do %>
+      <li  class="<%= is_class_active('news') %>">Noticias</li>
+    <% end %>
+    <%= link_to gp_jobs_path do %>
+      <li  class="<%= is_class_active('jobs') %>">Trabalhos</li>
+    <% end %>
+
+    <%= link_to gp_laws_path do %>
+      <li  class="<%= is_class_active('laws') %>">Legislações</li>
+    <% end %>
+
+    <%= link_to gp_benefits_path do %>
+      <li  class="<%= is_class_active('benefits') %>">Benefícios</li>
+    <% end %>
+
+    <%= link_to gp_contact_path do %>
+      <li  class="<%= is_class_active('contact') %>">Contacte-nos</li>
+    <% end %>
+
+    <% if member_signed_in? %>
+      <%= link_to gp_profile_path do %>
+        <li  class="<%= is_class_active('profile') %>">Perfil</li>
+      <% end %>
+      <% if current_member.is_admin? %>
+        <%= link_to admin_root_path do %>
+          <li>Dashboard</li>
+        <% end %>
+      <% end %>
+
+      <% if current_member.is_active? %>
+        <%= link_to gp_private_informations_path do %>
+          <li class="<%= is_class_active('private_informations') %>">Documentos</li>
+        <% end %>
+      <% end %>
+
+      <%= link_to('logout', destroy_member_session_path, :method => :delete, class: "secundary_button small_button right") %>
+    <% else %>
+      <%= link_to "login", new_member_session_path , class: "secundary_button small_button right"%>
+      <%= link_to "registo", new_member_registration_path, class:  "primary_button small_button right" %>
+    <% end %>
+  </ul>
+</nav>

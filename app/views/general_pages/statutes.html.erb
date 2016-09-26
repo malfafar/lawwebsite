@@ -1,0 +1,9 @@
+<%= render partial: 'general_partials/title', locals: { section_title:  t('strings.header.statutes.title'), fa_icon: "fa fa-book" } %>
+
+
+<% @chapters.each do |chapter| %>
+  <br>
+  <p class="chapter"><%= "Capitulo " + RomanNumerals.to_roman(chapter.number) +  " - " + chapter.title %></p>
+  <br>
+  <%= chapter.text.html_safe %>
+<% end %>

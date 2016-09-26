@@ -1,0 +1,55 @@
+<header class="main-header">
+ <!-- Logo -->
+ <!-- <a href="index2.html" class="logo"> -->
+   <!-- mini logo for sidebar mini 50x50 pixels -->
+   <!-- <span class="logo-mini"><b>N10</b></span> -->
+   <!-- logo for regular state and mobile devices -->
+ <%= link_to admin_root_path, class: "logo" do %>
+   <span class="logo-lg"><b>ASCR</b> Admin</span>
+ <% end %>
+ <!-- </a> -->
+ <!-- Header Navbar: style can be found in header.less -->
+ <nav class="navbar navbar-static-top" role="navigation">
+   <!-- Sidebar toggle button-->
+   <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+     <span class="sr-only">Toggle navigation</span>
+   </a>
+   <div class="navbar-custom-menu">
+     <ul class="nav navbar-nav">
+
+
+       <!-- User Account: style can be found in dropdown.less -->
+       <li class="dropdown user user-menu">
+         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+           <span class="hidden-xs">
+             <%= current_member.email %>
+           </span>
+         </a>
+         <ul class="dropdown-menu">
+           <li class="user-header">
+             <p>
+               <%= current_member.email %>
+               <small>Member since <%= current_member.created_at.strftime("%b %y") %>  </small>
+             </p>
+           </li>
+           <!-- Menu Body -->
+
+           <!-- Menu Footer-->
+           <li class="user-footer">
+             <div class="pull-left">
+               <%= link_to edit_member_registration_path do %>
+                 <span class="btn btn-default btn-flat">Profile</span>
+               <% end %>
+             </div>
+             <div class="pull-right">
+               <%= link_to  destroy_member_session_path, :method => :delete do %>
+                 <span class="btn btn-default btn-flat">Sign out</span>
+               <% end %>
+             </div>
+           </li>
+         </ul>
+       </li>
+     </ul>
+   </div>
+ </nav>
+</header>

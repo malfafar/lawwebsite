@@ -1,0 +1,43 @@
+<%= render partial: 'admin_partials/index/header', locals: { section_title: t("controller."+params[:controller]),
+                                                  section_sub_title: t("action."+params[:action]),
+                                                  page_title: t("strings.member.listing"),
+                                                  new_path: admin_member_new_path,
+                                                  new_button_name: t("strings.member.new"),
+                                                  search_form_path: index_active_path } %>
+
+<%= render "admin_partials/errors/notices" %>
+
+
+        <div class="box-body table-responsive no-padding">
+          <%= render 'layouts/admin_notices' %>
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th><%= t 'activerecord.attributes.member.name' %> </th>
+                <th><%= t 'activerecord.attributes.member.email' %></th>
+                <th><%= t 'activerecord.attributes.member.membership_number' %></th>
+                <th><%= t 'activerecord.attributes.member.role' %></th>
+                <th></th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <% @members.each do |member| %>
+                <tr>
+                  <td><%= member.name %></td>
+                  <td><%= member.email %></td>
+                  <td><%= member.membership_number %></td>
+                  <td><%= get_role(member.role) %></td>
+                  <td>
+                    <div class="btn-group">
+                      <%= link_to  t('strings.admin.show'), admin_member_show_path(member), class:"btn btn-info" %>
+                      <%= link_to  t('strings.admin.edit'), admin_member_edit_path(member), class:"btn btn-info" %>
+                      <%= link_to  t('strings.admin.destroy'), admin_destroy_member_path(member), method: :delete, data: { confirm: t('strings.admin.are_you_sure') }, class:"btn btn-info" %>
+                    </div>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div><!-- /.box-body -->
+        <%= render partial: 'admin_partials/index/footer', locals: { paginate_object: @members} %>

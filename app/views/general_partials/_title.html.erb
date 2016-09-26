@@ -1,0 +1,15 @@
+<!-- Stylesheets for this page are on partials/_title.scss -->
+
+<%= content_for :title do %>
+  <div class="title_header">
+    <div class="container">
+      <h1>
+        <span class="fa-stack fa-lg highlight">
+          <i class="fa fa-circle fa-stack-2x"></i>
+          <i class="fa <%= fa_icon %> fa-stack-1x fa-inverse"></i>
+        </span>
+        <%= section_title %>
+      </h1>
+    </div>
+  </div>
+<% end %>

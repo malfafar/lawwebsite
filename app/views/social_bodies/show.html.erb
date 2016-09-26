@@ -1,0 +1,24 @@
+<%= render partial: 'admin_partials/show/header', locals: { section_title:  t("controller."+params[:controller]),
+                                                  section_sub_title:  t("action."+params[:action]),
+                                                  page_title: t("strings.social_body.show")  } %>
+
+<%= render "admin_partials/errors/notices" %>
+
+
+          <strong><%= t 'activerecord.attributes.social_body.name' %></strong>
+          <p class="text-muted">
+            <%= @social_body.name %>
+          </p>
+
+          <strong><%= t 'activerecord.attributes.social_body.role' %></strong>
+          <p class="text-muted">
+            <%= get_position(@social_body.role) %>
+          </p>
+
+          <strong><%= t 'activerecord.attributes.social_body.position' %></strong>
+          <p class="text-muted">
+            <%= @social_body.position %>
+          </p>
+        </div><!-- /.box-body -->
+
+<%= render partial: 'admin_partials/show/footer', locals: {edit_path: edit_social_body_path(@social_body), back_path: social_bodies_path}%>

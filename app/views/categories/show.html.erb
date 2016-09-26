@@ -1,0 +1,11 @@
+<%= render partial: 'admin_partials/show/header', locals: { section_title:  t("controller."+params[:controller]),
+                                                  section_sub_title:  t("action."+params[:action]),
+                                                  page_title: t("strings.category.show")  } %>
+
+<%= render "admin_partials/errors/notices" %>
+          <strong><%= t 'activerecord.attributes.category.name' %></strong>
+          <p class="text-muted">
+            <%= @category.name %>
+          </p>
+
+<%= render partial: 'admin_partials/show/footer', locals: {edit_path: edit_category_path(@category), back_path: categories_path}%>

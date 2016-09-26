@@ -1,0 +1,21 @@
+<%= render partial: 'general_partials/title', locals: { section_title:  "Recuperar password", fa_icon: "fa-lock" } %>
+
+
+<div class="credentials_page">
+  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+    <%= render partial: 'general_partials/layout/errors', locals: {devise_error_messages: devise_error_messages! } %>
+
+
+    <div class="field">
+      <%= f.label :email %>
+      <%= f.email_field :email, autofocus: true, class: "text_input"  %>
+    </div>
+
+    <div class="actions center">
+      <%= f.submit "Recuperar password", class: "secundary_button medium_button" %>
+    </div>
+    <div class="center">
+      <%= render "members/shared/links" %>
+    </div>
+  <% end %>
+</div>

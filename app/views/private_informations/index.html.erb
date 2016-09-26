@@ -1,0 +1,38 @@
+<%= render partial: 'admin_partials/index/header', locals: { section_title:  t("controller."+params[:controller]),
+                                                  section_sub_title:  t("action."+params[:action]),
+                                                  page_title: t("strings.private_information.listing") ,
+                                                  new_path: new_private_information_path,
+                                                  new_button_name: t("strings.private_information.new"),
+                                                  search_form_path: private_informations_path } %>
+
+<%= render "admin_partials/errors/notices" %>
+        <div class="box-body table-responsive no-padding">
+          <%= render 'layouts/admin_notices' %>
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th><%= t 'activerecord.attributes.private_information.title' %></th>
+                <th><%= t 'activerecord.attributes.private_information.text' %></th>
+                <th><%= t 'activerecord.attributes.private_information.document' %></th>
+                <th colspan="3"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @private_informations.each do |private_information| %>
+                <tr>
+                  <td><%= private_information.title %></td>
+                  <td><%= private_information.text  %></td>
+                  <% if  private_information.document.exists?  %>
+                    <td> <%=link_to private_information.document_file_name, private_information.document.url %> </td>
+                  <% else %>
+                    <td> Sem Documento </td>
+                  <% end %>
+                  <%= render partial: 'admin_partials/index/buttons', locals: { object: private_information, edit_path: edit_private_information_path(private_information) } %>
+
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div><!-- /.box-body -->
+
+<%= render partial: 'admin_partials/index/footer', locals: { paginate_object: @private_informations} %>

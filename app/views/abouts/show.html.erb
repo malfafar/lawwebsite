@@ -1,0 +1,20 @@
+<%= render partial: 'admin_partials/show/header', locals: { section_title:  t("controller."+params[:controller]),
+                                                  section_sub_title:  t("action."+params[:action]),
+                                                  page_title: t("strings.about.show")  } %>
+
+<%= render "admin_partials/errors/notices" %>
+
+          <strong><%= t 'activerecord.attributes.about.objectives' %></strong>
+          <p class="text-muted">
+            <%= @about ? @about.objectives : "Vazio" %>
+          </p>
+
+
+          <strong><%= t 'activerecord.attributes.about.message' %></strong>
+          <p class="text-muted">
+            <%= @about ? @about.message : "Vazio" %>
+          </p>
+
+<% if @about %>
+  <%= render partial: 'admin_partials/show/footer', locals: {edit_path: edit_about_path(@about), back_path: nil}%>
+<% end %>

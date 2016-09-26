@@ -1,0 +1,56 @@
+<%# Stylesheets for this page are on partials/contact.scss %>
+
+
+<%= render partial: 'general_partials/title', locals: { section_title: t('strings.header.contacts.title'), fa_icon: "fa-phone" } %>
+
+<%= render partial: 'general_partials/layout/errors' %>
+
+<div class="contact">
+	<div class="informations">
+		<div class="phone">
+			<h4>Telefone:</h4>
+			<p>+351 21 757 33 81</p>
+		</div>
+		<div class="nipc">
+			<h4>NIPC:</h4>
+			<p>502 733 195</p>
+		</div>
+		<div class="email">
+			<h4>Email:</h4>
+			<p>direccao@ascr.pt</p>
+			<p>servico.socios@ascr.pt</p>
+		</div>
+		<div class="work_hours">
+			<h4>Horário de Atendimento:</h4>
+			<strong>Segunda-feira a Quinta-feira</strong>
+			<p>das 10:00h às 17:30h</p>
+			<strong>Sexta-feira</strong>
+			<p>das 10:00h às 17:00h<br>
+			(1 hora de intervalo para almoço)</p>
+		</div>
+	</div>
+	<div class="contact_form">
+		<div class="contact_form">
+			<%= form_tag gp_send_contact_path do %>
+					<%= text_field_tag( "contact_info[name]", nil, class: "inputs", placeholder: "Nome *", required: true)  %>
+					<%= email_field_tag( "contact_info[email]", nil, class: "inputs", placeholder: "E-mail *", required: true) %>
+					<%= text_area_tag( "contact_info[message]", nil, class: "message", placeholder: "Escreva a sua mensagem...") %>
+					<%= submit_tag( "ENVIAR", class:"medium_button secundary_button") %>
+			<% end %>
+		</div>
+	</div>
+</div>
+
+<%= content_for :outside_after_container do %>
+	<div class="map">
+		<div class="text container">
+			<i class="fa fa-map-marker"></i> Alameda das Linhas de Torres, nº253.1750-154 Lisboa - Portugal
+		</div>
+		<div id="googleMap" style="width:100%;height:450px;"></div>
+	</div>
+<% end %>
+
+<%= content_for :javascript_block do %>
+	<%= javascript_include_tag 'general/map' %>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBtpeMfM9_ZqsWQzQq1uz5cETFq_wH-aI4&callback=initMap"></script>
+<% end %>

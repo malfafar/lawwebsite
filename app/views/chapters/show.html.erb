@@ -1,0 +1,23 @@
+<%= render partial: 'admin_partials/show/header', locals: { section_title:  t("controller."+params[:controller]),
+                                                  section_sub_title:  t("action."+params[:action]),
+                                                  page_title: t("strings.chapter.show")  } %>
+
+<%= render "admin_partials/errors/notices" %>
+
+          <strong><strong><%= t 'activerecord.attributes.chapter.title' %></strong></strong>
+          <p class="text-muted">
+            <%= @chapter.title %>
+          </p>
+
+          <strong><%= t 'activerecord.attributes.chapter.number' %></strong>
+          <p class="text-muted">
+            <%= @chapter.number %>
+          </p>
+
+          <strong><%= t 'activerecord.attributes.chapter.text' %></strong>
+          <p class="text-muted">
+            <%= @chapter.text %>
+          </p>
+
+
+<%= render partial: 'admin_partials/show/footer', locals: {edit_path: edit_chapter_path(@chapter), back_path: chapters_path}%>

@@ -1,0 +1,25 @@
+<%# Stylesheets for this page are on partials/jobs.scss %>
+
+<%= render partial: 'general_partials/title', locals: { section_title: t('strings.header.jobs.title'), fa_icon: "fa-pencil" } %>
+
+
+
+<div class="job_title">
+  <h2><%= @job.name %></h2>
+</div>
+
+<div class="job_info">
+  <p class="highlight"> <i class="fa fa-user"></i> Autor: <%= @job.author %></p>
+  <p class="highlight">  <i class="fa fa-tag"></i> Categoria: <%= @job.category %></p>
+  <p class="highlight">  <i class="fa fa-calendar"></i> Criado a <%= @job.created_at.strftime("%d/%m/%Y") %></p>
+</div>
+<div class="job_description">
+  <p><%= @job.description %></p>
+</div>
+
+
+<% if @job.document.exists? %>
+  <div class="job_document right">
+    <i class="fa fa-download highlight"></i> <p><%= link_to @job.document_file_name, @job.document.url, target: "_blank" %></p>
+  </div>
+<% end %>

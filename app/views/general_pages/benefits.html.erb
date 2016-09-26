@@ -1,0 +1,15 @@
+<%# Stylesheets for this page are on partials/benefits.scss %>
+
+
+<%= render partial: 'general_partials/title', locals: { section_title: t('strings.header.benefits.title'), fa_icon: "fa-briefcase" } %>
+
+
+<% @benefits.each do |benefit| %>
+  <%= link_to gp_benefit_path(benefit) do %>
+    <div class="benefit">
+      <i class="fa fa-shopping-bag fa-2x"></i><p><%= benefit.title %></p>
+    </div>
+  <% end %>
+<% end %>
+
+<%= paginate @benefits %>

@@ -1,0 +1,30 @@
+<%= render partial: 'admin_partials/index/header', locals: { section_title:  t("controller."+params[:controller]),
+                                                  section_sub_title:  t("action."+params[:action]),
+                                                  page_title: t("strings.slide.listing") ,
+                                                  new_path: new_slide_path,
+                                                  new_button_name: t("strings.slide.new"),
+                                                  search_form_path: slides_path } %>
+
+<%= render "admin_partials/errors/notices" %>
+  <div class="box-body table-responsive no-padding">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th><%= t "activerecord.attributes.slide.title" %></th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @slides.each do |slide| %>
+          <tr>
+            <td><%= slide.title %></td>
+            <%= render partial: 'admin_partials/index/buttons', locals: { object: slide, edit_path: edit_slide_path(slide) } %>
+
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
+<%= render partial: 'admin_partials/index/footer', locals: { paginate_object: @slides} %>

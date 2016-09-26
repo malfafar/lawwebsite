@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>ASCR - Administração</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- Bootstrap 3.3.5 -->
+    <%= favicon_link_tag 'favicon.ico' %>
+    <%= stylesheet_link_tag    'admin', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'admin', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body class="hold-transition <%= skin_class(4) %> sidebar-mini fixed">
+    <div class="wrapper">
+
+      <%= render 'admin_partials/layout/header' %>
+      <!-- Left side column. contains the logo and sidebar -->
+
+
+      <!-- Content Wrapper. Contains page content -->
+      <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+          <%= yield %>
+      </div><!-- /.content-wrapper -->
+
+
+      <%= render 'layouts/admin_sidebar' %>
+      <!-- Add the sidebar's background. This div must be placed
+           immediately after the control sidebar -->
+      <!-- <div class="control-sidebar-bg"></div> -->
+    </div><!-- ./wrapper -->
+  </body>
+</html>

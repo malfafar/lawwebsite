@@ -1,0 +1,24 @@
+<%= render partial: 'admin_partials/show/header', locals: { section_title:  t("controller."+params[:controller]),
+                                                  section_sub_title:  t("action."+params[:action]),
+                                                  page_title: t("strings.private_information.show")  } %>
+
+<%= render "admin_partials/errors/notices" %>
+
+          <strong><%= t 'activerecord.attributes.private_information.title' %></strong>
+          <p class="text-muted">
+            <%= @private_information.title %>
+          </p>
+
+          <strong><%= t 'activerecord.attributes.private_information.text' %></strong>
+          <p class="text-muted">
+            <%= @private_information.text %>
+          </p>
+
+          <strong><%= t 'activerecord.attributes.private_information.document' %></strong>
+          <p class="text-muted">
+            <% if @private_information.document.exists? %>
+              <%= link_to @private_information.document_file_name, @private_information.document.url  %>
+            <% end %>
+          </p>
+          
+<%= render partial: 'admin_partials/show/footer', locals: {edit_path: edit_private_information_path(@private_information), back_path: private_informations_path}%>

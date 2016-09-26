@@ -1,0 +1,33 @@
+
+
+<%= render partial: 'general_partials/title', locals: { section_title: t('strings.header.about.title') , fa_icon: "fa-balance-scale" } %>
+
+
+<% if @about %>
+  <% if @about.message %>
+    <h2> Sobre </h2>
+      <%= simple_format(@about.message) %>
+  <% end %>
+  <% if @about.objectives %>
+    <h2> Objectivos </h2>
+      <%= simple_format(@about.objectives) %>
+  <% end %>
+<% end %>
+
+<% if @social_bodies.any? %>
+  <h2> Corpos Sociais </h2>
+  <% last = -1 %>
+  <% @social_bodies.each do |social_body| %>
+    <% if social_body.role != last %>
+      <h4><%= get_position(social_body.role) %></h4>
+      <% last = social_body.role %>
+    <% end %>
+    <p class="social_body_name"><%= social_body.name %></p>
+    <p class="social_body_position"><%= social_body.position %></p>
+  <% end %>
+<% end %>
+
+<% if Chapter.any? %>
+  <h2> Estatutos </h2>
+    <%= link_to "Estatutos", gp_statutes_path %>
+<% end %>

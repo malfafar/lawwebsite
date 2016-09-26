@@ -1,0 +1,143 @@
+<%= render partial: 'admin_partials/new/header', locals: { section_title: t("controller."+params[:controller]),
+                                                  section_sub_title: t("action."+params[:action]),
+                                                  page_title: t("strings.member.new") } %>
+        <div class="box-body">
+
+          <%= form_for(@member, url: admin_create_member_path) do |f| %>
+            <%= render partial: 'admin_partials/errors/errors_form', locals: { current_object: @member} %>
+
+            <div class="form-group">
+              <%= f.label :email %>*<br />
+              <%= f.email_field :email, class: "form-control", autofocus: true, required: true %>
+            </div>
+            <div class="form-group">
+              <%= f.label :name %>*<br>
+              <%= f.text_field :name, class: "form-control", required: true  %>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :membership_number %><br>
+              <%= f.number_field :membership_number, class: "form-control" %>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :birthday %><br>
+              <%= f.text_field :birthday, class: "form-control", id: 'birthday', data: { date_format: 'yyyy-mm-dd'} %>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :naturality%>*<br>
+              <%= f.text_field :naturality, class: "form-control", required: true  %>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :residence %>*<br>
+              <%= f.text_area :residence, class: "form-control", required: true  %>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :zip_code%><br>
+              <%= f.text_field :zip_code, class: "form-control"%>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :phone %><br>
+              <%= f.text_field :phone, class: "form-control" %>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :office %>*<br>
+              <%= f.text_field :office, class: "form-control", required: true %>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :office_address %>*<br>
+              <%= f.text_field :office_address, class: "form-control", required: true %>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :office_zipcode %>*<br>
+              <%= f.text_field :office_zipcode, class: "form-control", required: true %>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :attached_registry %>*<br>
+              <%= f.check_box :attached_registry %>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :office_phone %>*<br>
+              <%= f.text_field :office_phone, class: "form-control", required: true %>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :office_fax %><br>
+              <%= f.text_field :office_fax, class: "form-control" %>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :location_class %>*<br>
+              <%= f.text_field :location_class, class: "form-control", required: true %>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :career_start_date %><br>
+              <%= f.text_field :career_start_date, class: "form-control", id: "career-start-date", data: { date_format: 'yyyy-mm-dd'} %>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :personal_class %>*<br>
+              <%= f.text_field :personal_class, class: "form-control", required: true %>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :class_promotion_date %><br>
+              <%= f.text_field :class_promotion_date, class: "form-control", id: "class-promotion-date", data: { date_format: 'yyyy-mm-dd'} %>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :practice_level %>*<br>
+              <%= f.text_field :practice_level, class: "form-control", required: true %>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :level_start_date %><br>
+              <%= f.text_field :level_start_date, class: "form-control", id: "level-start-date", data: { date_format: 'yyyy-mm-dd'} %>
+            </div>
+
+            <div class="box-footer">
+              <%= f.submit class: "btn btn-primary" %>
+            </div>
+          <% end %>
+        </div>
+        <%= render partial: 'admin_partials/new/footer', locals: { back_path: :back}%>
+
+
+
+
+
+
+<script>
+$(document).on("ready page:load", function () {
+  $('#birthday').datepicker(
+  {
+    todayHighlight: true,
+    autoclose: true
+  });
+  $('#career-start-date').datepicker(
+  {
+    todayHighlight: true,
+    autoclose: true
+  });
+  $('#class-promotion-date').datepicker(
+  {
+    todayHighlight: true,
+    autoclose: true
+  });
+  $('#level-start-date').datepicker(
+  {
+    todayHighlight: true,
+    autoclose: true
+  });
+});
+</script>

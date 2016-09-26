@@ -1,0 +1,35 @@
+<%= render partial: 'admin_partials/show/header', locals: { section_title:  t("controller."+params[:controller]),
+                                                  section_sub_title:  t("action."+params[:action]),
+                                                  page_title: t("strings.benefit.show")  } %>
+
+<%= render "admin_partials/errors/notices" %>
+
+          <strong><%= t 'activerecord.attributes.benefit.name' %></strong>
+          <p class="text-muted">
+            <%= @benefit.title %>
+          </p>
+
+          <strong><%= t 'activerecord.attributes.benefit.description' %></strong>
+          <p class="text-muted">
+            <%= @benefit.description %>
+          </p>
+
+          <% if @benefit.category %>
+            <strong><%= t 'activerecord.attributes.benefit.category_id' %></strong>
+            <p class="text-muted">
+              <%= @benefit.category.name %>
+            </p>
+          <% end %>
+
+          <% if @benefit.protocols.any? %>
+            <strong><%= t 'activerecord.attributes.benefit.protocols' %></strong>
+
+            <% @benefit.protocols.each do |protocol| %>
+              <p class="text-muted">
+                <%= link_to protocol.name, protocol_path(protocol) %>
+              </p>
+            <% end %>
+          <% end %>
+
+
+<%= render partial: 'admin_partials/show/footer', locals: {edit_path: edit_benefit_path(@benefit), back_path: benefits_path}%>

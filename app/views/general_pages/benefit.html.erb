@@ -1,0 +1,21 @@
+<%# Stylesheets for this page are on partials/benefits.scss %>
+<%= render partial: 'general_partials/title', locals: { section_title: t('strings.header.benefits.title'), fa_icon: "fa-briefcase" } %>
+
+
+  <h2><%= @benefit.title %></h2>
+
+  <p><%= @benefit.description %></p>
+
+
+  <% if @benefit.protocols.any? %>
+  <div class="protocol_list">
+    <h4> PROTOCOLOS </h4>
+    <% @benefit.protocols.each do |protocol| %>
+      <%= link_to gp_protocol_path(protocol) do%>
+        <div class="protocol">
+          <i class="fa fa-suitcase"></i><p><%= protocol.name %></p>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <% end %>

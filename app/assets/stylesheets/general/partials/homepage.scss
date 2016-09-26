@@ -1,0 +1,164 @@
+section
+{
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+@include breakpoint($xs)
+    {
+    #about_us_home
+    {
+      background-color: $light_gray;
+
+
+      img
+      {
+        float: left;
+        margin-right: 30px;
+        width: 80%;
+      }
+
+      h2
+      {
+        // font-weight: $medium_font;
+      }
+    }
+
+
+    #header_home
+    {
+      padding-top: 0px;
+      height: 200px;
+      background-image: image-url("banner.jpg");
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-color: $dark_gray;
+
+
+      h1
+      {
+        color: $white;
+        margin-bottom: 10px;
+        margin-top: 35px;
+      }
+
+      .text
+      {
+        font-size: 16px;
+      	font-weight: $semi_bold_font;
+        letter-spacing: 1px;
+        margin-top: 20px;
+        color: $white;
+      }
+
+      hr
+      {
+        border-style: solid;
+        border-color: $red;
+        width: 50px;
+        border-width: 3px;
+        border-radius: 0px;
+        margin-left: 0;
+      }
+    }
+
+    #logo_intro
+    {
+      @include span(12 of 12);
+      text-align: center;
+
+      img
+      {
+        margin-top: 40px;
+        width: 20%;
+        margin: auto;
+        float: none;
+      }
+    }
+
+    #text_intro
+    {
+      @include span(12 of 12);
+
+      h2
+      {
+        margin-bottom: 20px;
+        text-align: center;
+      }
+    }
+
+
+    #news_home
+    {
+
+
+      span
+      {
+        color: $red;
+      }
+
+    }
+}
+
+@include breakpoint($medium)
+{
+  #header_home
+  {
+    height: 400px;
+
+    h1
+    {
+      margin-top: 85px;
+    }
+  }
+
+  #logo_intro
+  {
+    @include span(3 of 12);
+
+    img
+    {
+      margin-top: 40px;
+      width: 80%;
+      float: left;
+    }
+  }
+
+  #text_intro
+  {
+    @include span(9 of 12);
+
+    h2
+    {
+      margin-bottom: 20px;
+      text-align: left;
+    }
+  }
+}
+
+
+@include breakpoint($large)
+{
+  #logo_intro
+  {
+    @include span(3 of 12);
+
+    img
+    {
+      margin-top: 40px;
+      width: 80%;
+      float: left;
+    }
+  }
+
+  #text_intro
+  {
+    @include span(9 of 12);
+
+    h2
+    {
+      margin-bottom: 20px;
+      text-align: left;
+    }
+  }
+}

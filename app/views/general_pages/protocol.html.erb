@@ -1,0 +1,12 @@
+<%# Stylesheets for this page are on partials/benefits.scss %>
+
+<%= render partial: 'general_partials/title', locals: { section_title: t('strings.header.benefits.title'), fa_icon: "fa-briefcase" } %>
+
+
+<h2><%= @protocol.name %></h2>
+
+<div class="protocol_info">
+  <p class="highlight">  <i class="fa fa-gift"></i> Benefit: <%= link_to @protocol.benefit.title, gp_benefit_path(@protocol.benefit) %></p>
+</div>
+
+<p><%= simple_format(@protocol.description) %></p>

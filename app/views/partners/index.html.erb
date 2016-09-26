@@ -1,0 +1,35 @@
+<%= render partial: 'admin_partials/index/header', locals: { section_title:  t("controller."+params[:controller]),
+                                                  section_sub_title:  t("action."+params[:action]),
+                                                  page_title: t("strings.partner.listing") ,
+                                                  new_path: new_partner_path,
+                                                  new_button_name: t("strings.partner.new"),
+                                                  search_form_path: partners_path } %>
+
+<%= render "admin_partials/errors/notices" %>
+
+        <div class="box-body table-responsive no-padding">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th><%= t 'activerecord.attributes.partner.name' %></th>
+                <th><%= t 'activerecord.attributes.partner.name' %></th>
+                <th><%= t 'activerecord.attributes.partner.url' %></th>
+                <th colspan="3"></th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <% @partners.each do |partner| %>
+                <tr>
+                  <td><%= partner.name %></td>
+                  <td><%= partner.description %></td>
+                  <td><%= partner.url %></td>
+                  <%= render partial: 'admin_partials/index/buttons', locals: { object: partner, edit_path: edit_partner_path(partner) } %>
+
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div><!-- /.box-body -->
+
+<%= render partial: 'admin_partials/index/footer', locals: { paginate_object: @partners} %>

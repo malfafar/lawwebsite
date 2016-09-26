@@ -1,0 +1,33 @@
+<%= render partial: 'admin_partials/index/header', locals: { section_title:  t("controller."+params[:controller]),
+                                                  section_sub_title:  t("action."+params[:action]),
+                                                  page_title: t("strings.post.listing") ,
+                                                  new_path: new_post_path,
+                                                  new_button_name: t("strings.post.new"),
+                                                  search_form_path: posts_path } %>
+
+<%= render "admin_partials/errors/notices" %>
+
+        <div class="box-body table-responsive no-padding">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th><%= t 'activerecord.attributes.post.title' %></th>
+                <th><%= t 'activerecord.attributes.post.description' %></th>
+                <th colspan="3"></th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <% @posts.each do |post| %>
+                <tr>
+                  <td><%= post.title %></td>
+                  <td><%= truncate(post.description) %></td>
+                  <%= render partial: 'admin_partials/index/buttons', locals: { object: post, edit_path: edit_post_path(post) } %>
+
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div><!-- /.box-body -->
+
+<%= render partial: 'admin_partials/index/footer', locals: { paginate_object: @post} %>

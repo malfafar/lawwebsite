@@ -1,0 +1,116 @@
+@include breakpoint($xs)
+{
+
+    .benefit
+    {
+      display: inline;
+      background-color: $gray;
+      width: span(46 of 48);
+      margin-left: 0;
+      margin-right: 0;
+      padding-left: span(1 of 48);
+      padding-right: span(1 of 48);
+      padding-top: 10px;
+      padding-bottom: 10px;
+      float: left;
+      color: $light_gray;
+      border-radius: 2px;
+      margin-bottom: 15px;
+
+      i
+      {
+        margin-right: 10px;
+        display: inline-block;
+        font-size: 1.6em;
+        vertical-align: middle;
+      }
+
+      p
+      {
+        display: inline-block;
+        color: $text_white;
+        margin: 0;
+      }
+    }
+
+    .protocol_list
+    {
+      margin-top: 40px;
+      h4
+      {
+          margin-bottom: 30px;
+      }
+    }
+
+    .protocol
+    {
+      display: inline;
+      background-color: $gray;
+      width: span(46 of 48);
+      margin-left: 0;
+      margin-right: 0;
+      padding-left: span(1 of 48);
+      padding-right: span(1 of 48);
+      padding-top: 10px;
+      padding-bottom: 10px;
+      float: left;
+      color: $light_gray;
+      border-radius: 2px;
+      margin-bottom: 15px;
+
+      i
+      {
+        margin-right: 10px;
+        display: inline-block;
+        font-size: 1.6em;
+        vertical-align: middle;
+      }
+
+      p
+      {
+        display: inline-block;
+        color: $text_white;
+        margin: 0;
+      }
+    }
+
+    .protocol_info
+    {
+      p
+      {
+        padding-right: 20px;
+        display: inline;
+      }
+    }
+
+}
+
+@include breakpoint($medium)
+{
+  .benefit
+  {
+
+    width: span(20 of 48);
+    margin-left: span(1 of 48);
+    margin-right: span(1 of 48);
+    padding-left: span(1 of 48);
+    padding-right: span(1 of 48);
+
+
+    i
+    {
+      margin-right: 10px;
+    }
+  }
+
+
+  .protocol
+  {
+    width: span(20 of 48);
+    margin-left: span(1 of 48);
+    margin-right: span(1 of 48);
+    padding-left: span(1 of 48);
+    padding-right: span(1 of 48);
+  }
+
+}

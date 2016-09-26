@@ -1,0 +1,36 @@
+<%= render partial: 'admin_partials/index/header', locals: { section_title:  t("controller."+params[:controller]),
+                                                  section_sub_title:  t("action."+params[:action]),
+                                                  page_title: t("strings.job.listing") ,
+                                                  new_path: new_job_path,
+                                                  new_button_name: t("strings.job.new"),
+                                                  search_form_path: jobs_path } %>
+
+<%= render "admin_partials/errors/notices" %>
+
+        <div class="box-body table-responsive no-padding">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th><%= t 'activerecord.attributes.job.name' %></th>
+                <th><%= t 'activerecord.attributes.job.description' %></th>
+                <th><%= t 'activerecord.attributes.job.author' %></th>
+                <th><%= t 'activerecord.attributes.job.category' %></th>
+                <th colspan="3"></th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <% @jobs.each do |job| %>
+                <tr>
+                  <td><%= job.name %></td>
+                  <td><%= job.description %></td>
+                  <td><%= job.author %></td>
+                  <td><%= job.category %></td>
+                  <%= render partial: 'admin_partials/index/buttons', locals: { object: job, edit_path: edit_job_path(job) } %>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div><!-- /.box-body -->
+
+<%= render partial: 'admin_partials/index/footer', locals: { paginate_object: @jobs} %>

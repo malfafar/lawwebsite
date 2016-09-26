@@ -1,0 +1,61 @@
+<nav class="menu">
+    <div class="logo_burgermenu"><%= link_to root_path, 'data-no-turbolink' => true do %> <%= image_tag("logo.png", :class => "logo") %> <% end %></div>
+    <%= fa_icon "bars", :class =>"burger" %>
+    <ul class="nav_list">
+    	<%= link_to gp_about_path do %>
+        <li class="<%= is_class_active('about') %>"><%= t('strings.header.about.nav_bar' ) %></li>
+      <% end %>
+      <!-- Parceiros deverão ser um link junto ao footer. -->
+      <%#= link_to gp_partners_path do %>
+        <!-- <li  class="<%#= is_class_active('partners') %>">Parceiros</li> -->
+      <%# end %>
+      <%= link_to gp_news_path do %>
+        <li  class="<%= is_class_active(['news', 'post']) %>"><%= t('strings.header.posts.nav_bar' ) %></li>
+      <% end %>
+      <% if Job.first %>
+        <%= link_to gp_jobs_path do %>
+          <li  class="<%= is_class_active(['jobs', 'job']) %>"><%= t('strings.header.jobs.nav_bar' ) %></li>
+        <% end %>
+      <% end %>
+      <% if Law.first %>
+        <%= link_to gp_laws_path do %>
+          <li  class="<%= is_class_active('laws')  %>"><%= t('strings.header.laws.nav_bar' ) %></li>
+        <% end %>
+      <% end %>
+      <% if Benefit.first %>
+        <%= link_to gp_benefits_path do %>
+          <li  class="<%= is_class_active(['benefits', 'benefit', 'protocol']) %>"><%= t('strings.header.benefits.nav_bar' ) %></li>
+        <% end %>
+      <% end %>
+
+      <%= link_to gp_contact_path do %>
+        <li  class="<%= is_class_active('contact') %>"><%= t('strings.header.contacts.nav_bar' ) %></li>
+      <% end %>
+
+      <% if member_signed_in? %>
+        <%= link_to gp_profile_path do %>
+          <li  class="<%= is_class_active(['profile', 'edit']) %>"><%= t('strings.header.profile.nav_bar' ) %></li>
+        <% end %>
+        <% if current_member.is_admin? %>
+          <%= link_to admin_root_path do %>
+            <li><%= t('strings.header.dashboard.nav_bar' ) %></li>
+          <% end %>
+        <% end %>
+
+        <% if current_member.is_active? %>
+          <%= link_to gp_private_informations_path do %>
+            <li class="<%= is_class_active('private_informations') %>"><%= t('strings.header.private_informations.nav_bar' ) %></li>
+          <% end %>
+        <% end %>
+
+          <li class="signout_btn"><%= link_to('logout', destroy_member_session_path, :method => :delete, class: "secundary_button small_button") %></li>
+      <% else %>
+        <li class="login_btn"><%= link_to "login", new_member_session_path , class: "secundary_button small_button"%></li>
+        <li class="signup_btn"><%= link_to "registo", new_member_registration_path, class:  "primary_button small_button" %></li>
+      <% end %>
+    </ul>
+  </nav>
+
+  <div class="white_space_nav">
+
+  </div>

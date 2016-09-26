@@ -1,0 +1,18 @@
+<%# Stylesheets for this page are on partials/private_informations.scss %>
+
+<%= render partial: 'general_partials/title', locals: { section_title: t('strings.header.private_informations.title'), fa_icon: "fa-archive" } %>
+
+
+
+  <% @private_informations.each do |p_info| %>
+    <div class="private_informations">
+        <div class="informations"><p class="title"><%= p_info.title %></p>  <p class="description"><%= p_info.text %></p></div>
+        <% if p_info.document.exists? %>
+
+          <%= link_to p_info.document.url, class: "download_link" do %>
+            <i class="fa fa-download"></i> Download
+          <% end %>
+        <% end %>
+    </div>
+  <% end %>
+<%= paginate @private_informations %>

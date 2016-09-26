@@ -1,0 +1,9 @@
+<%= render partial: 'admin_partials/edit/header', locals: { section_title:  t("controller."+params[:controller]),
+                                                  section_sub_title:  t("action."+params[:action]),
+                                                  page_title: t("strings.benefit.edit") } %>
+
+
+      <%= render 'form' %>
+
+
+<%= render partial: 'admin_partials/edit/footer', locals: {object_to_show: @benefit, back_path: benefits_path}%>

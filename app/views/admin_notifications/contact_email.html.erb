@@ -1,0 +1,8 @@
+Hello,
+<% puts @contact_info %>
+<%= @contact_info[:name] %> sent you a message throught the contact form on the website.
+
+His E-mail contact is: <%= @contact_info[:email] %>, his phone number <%= @contact_info[:phone] %> <% if @contact_info[:company] %> as his company is <%= @contact_info[:company] %>. <%else%>. <% end %>
+
+The message is: <br>
+<%= @contact_info[:message] %>

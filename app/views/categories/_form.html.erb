@@ -1,0 +1,25 @@
+
+<div class="box-body">
+  <%= form_for(@category) do |f| %>
+    <% if @category.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@category.errors.count, "error") %>  impediram esta categoria de ser guardada:</h2>
+
+        <ul>
+        <% @category.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+
+    <div class="form-group">
+      <%= f.label :name %><br>
+      <%= f.text_field :name, class: "form-control" %>
+    </div>
+
+    <div class="box-footer">
+      <%= f.submit class: "btn btn-primary" %>
+    </div>
+  <% end %>

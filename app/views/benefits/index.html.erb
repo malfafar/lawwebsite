@@ -1,0 +1,32 @@
+<%= render partial: 'admin_partials/index/header', locals: { section_title:  t("controller."+params[:controller]),
+                                                  section_sub_title:  t("action."+params[:action]),
+                                                  page_title: t("strings.benefit.listing") ,
+                                                  new_path: new_benefit_path,
+                                                  new_button_name: t("strings.benefit.new"),
+                                                  search_form_path: benefits_path } %>
+
+<%= render "admin_partials/errors/notices" %>
+
+        <div class="box-body table-responsive no-padding">
+          <%= render 'layouts/admin_notices' %>
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th><%= t 'activerecord.attributes.benefit.name' %></th>
+                <th colspan="3"></th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <% @benefits.each do |benefit| %>
+                <tr>
+                  <td><%= benefit.title %></td>
+                  <td><%= benefit.description %></td>
+                  <%= render partial: 'admin_partials/index/buttons', locals: { object: benefit, edit_path: edit_benefit_path(benefit) } %>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div><!-- /.box-body -->
+
+<%= render partial: 'admin_partials/index/footer', locals: { paginate_object: @benefits} %>

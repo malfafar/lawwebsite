@@ -1,0 +1,34 @@
+<%= render partial: 'admin_partials/index/header', locals: { section_title:  t("controller."+params[:controller]),
+                                                  section_sub_title:  t("action."+params[:action]),
+                                                  page_title: t("strings.social_body.listing") ,
+                                                  new_path: new_social_body_path,
+                                                  new_button_name: t("strings.social_body.new"),
+                                                  search_form_path: nil } %>
+
+<%= render "admin_partials/errors/notices" %>
+
+        <div class="box-body table-responsive no-padding">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th><%= t 'activerecord.attributes.social_body.name' %></th>
+                <th><%= t 'activerecord.attributes.social_body.role' %></th>
+                <th><%= t 'activerecord.attributes.social_body.position' %></th>
+                <th colspan="3"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @social_bodies.each do |social_body| %>
+                <tr>
+                  <td><%= social_body.name %></td>
+                  <td><%= get_position(social_body.role) %></td>
+                  <td><%= social_body.position %></td>
+                  <%= render partial: 'admin_partials/index/buttons', locals: { object: social_body, edit_path: edit_social_body_path(social_body) } %>
+
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div><!-- /.box-body -->
+
+<%= render partial: 'admin_partials/index/footer', locals: { paginate_object: @social_bodies} %>

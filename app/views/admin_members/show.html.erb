@@ -1,0 +1,123 @@
+<%= render partial: 'admin_partials/show/header', locals: { section_title: t("controller."+params[:controller]),
+                                                  section_sub_title: t("action."+params[:action]),
+                                                  page_title: t("strings.member.show") } %>
+
+<%= render "admin_partials/errors/notices" %>
+
+
+          <strong><%= t 'activerecord.attributes.member.name' %></strong>
+          <p class="text-muted">
+            <%= @member.name %>
+          </p>
+
+          <strong><%= t 'activerecord.attributes.member.membership_number' %></strong>
+          <p class="text-muted">
+            <%= @member.membership_number %>
+          </p>
+
+          <strong><%= t 'activerecord.attributes.member.email' %></strong>
+          <p class="text-muted">
+            <%= @member.email %>
+          </p>
+
+          <strong><%= t 'activerecord.attributes.member.naturality' %></strong>
+          <p class="text-muted">
+            <%= @member.naturality %>
+          </p>
+
+          <strong><%= t 'activerecord.attributes.member.birthday' %></strong>
+          <p class="text-muted">
+            <%= @member.birthday %>
+          </p>
+
+          <strong><%= t 'activerecord.attributes.member.residence' %></strong>
+          <p class="text-muted">
+            <%= @member.residence %>
+          </p>
+
+          <strong><%= t 'activerecord.attributes.member.zip_code' %></strong>
+          <p class="text-muted">
+            <%= @member.zip_code %>
+          </p>
+
+          <strong><%= t 'activerecord.attributes.member.phone' %></strong>
+          <p class="text-muted">
+            <%= @member.phone %>
+          </p>
+
+          <strong><%= t 'activerecord.attributes.member.office' %></strong>
+          <p class="text-muted">
+            <%= @member.office %>
+          </p>
+
+          <strong><%= t 'activerecord.attributes.member.office_email' %></strong>
+          <p class="text-muted">
+            <%= @member.office_email %>
+          </p>
+
+          <strong><%= t 'activerecord.attributes.member.office_address' %></strong>
+          <p class="text-muted">
+            <%= @member.office_address %>
+          </p>
+
+          <strong><%= t 'activerecord.attributes.member.office_zipcode' %></strong>
+          <p class="text-muted">
+            <%= @member.office_zipcode %>
+          </p>
+
+          <strong><%= t 'activerecord.attributes.member.attached_registry' %></strong>
+          <p class="text-muted">
+            <%= @member.attached_registry %>
+          </p>
+
+          <strong><%= t 'activerecord.attributes.member.office_phone' %></strong>
+          <p class="text-muted">
+            <%= @member.office_phone %>
+          </p>
+
+          <strong><%= t 'activerecord.attributes.member.office_fax' %></strong>
+          <p class="text-muted">
+            <%= @member.office_fax %>
+          </p>
+
+          <strong><%= t 'activerecord.attributes.member.location_class' %></strong>
+          <p class="text-muted">
+            <%= @member.location_class %>
+          </p>
+
+          <strong><%= t 'activerecord.attributes.member.career_start_date' %></strong>
+          <p class="text-muted">
+            <%= @member.career_start_date %>
+          </p>
+
+          <strong><%= t 'activerecord.attributes.member.personal_class' %></strong>
+          <p class="text-muted">
+            <%= @member.personal_class %>
+          </p>
+
+          <strong><%= t 'activerecord.attributes.member.class_promotion_date' %></strong>
+          <p class="text-muted">
+            <%= @member.class_promotion_date %>
+          </p>
+
+          <strong><%= t 'activerecord.attributes.member.practice_level' %></strong>
+          <p class="text-muted">
+            <%= @member.practice_level %>
+          </p>
+
+          <strong><%= t 'activerecord.attributes.member.level_start_date' %></strong>
+          <p class="text-muted">
+            <%= @member.level_start_date %>
+          </p>
+
+          <!-- <strong><%#= t 'activerecord.attributes.member.pending' %></strong>
+          <p class="text-muted">
+            <%#= @member.pending %>
+          </p> -->
+
+          <strong><%= t 'activerecord.attributes.member.role' %></strong>
+          <p class="text-muted">
+            <%= get_role(@member.role) %>
+          </p>
+
+        <%= render partial: 'admin_partials/show/footer', locals: {edit_path: admin_member_edit_path(@member), back_path: index_active_path}%>

@@ -1,0 +1,145 @@
+@include breakpoint($xs)
+{
+  .contact
+  {
+    @include span(12 of 12);
+    margin-top: 75px;
+    margin-bottom: 35px;
+
+    .informations
+    {
+      @include span(12 of 12);
+      margin-bottom: 25px;
+      text-align: center;
+
+      h4
+      {
+        margin-bottom: 10px;
+      }
+
+      strong
+      {
+        font-size: 13px;
+      }
+
+      p
+      {
+        margin: 0;
+        font-size: 12px;
+      }
+      .phone
+      {
+        margin-bottom: 20px;
+      }
+
+      .nipc
+      {
+        margin-bottom: 20px;
+      }
+
+
+      .email
+      {
+        margin-bottom: 20px;
+      }
+
+      .work_hours
+      {
+
+      }
+    }
+
+    .contact_form
+    {
+      @include span(12 of 12);
+
+      margin-top: 25px;
+      input[type="text"], input[type="email"]
+      {
+        @include span(12 of 12);
+
+      }
+
+      input[type="submit"]
+      {
+        @include span(6 of 12);
+        margin-left: span(6 of 12);
+      }
+
+      textarea
+      {
+        @include span(12 of 12);
+        height: 80px;
+        margin-bottom: 30px;
+        width: 98%;
+        font-family: 'Lato', sans-serif;
+      }
+
+
+      textarea:focus
+      {
+        outline: none;
+      }
+    }
+  }
+
+::-webkit-input-placeholder {
+  font-family: 'Lato', sans-serif
+}
+:-moz-placeholder {
+    font-family: 'Lato', sans-serif;
+}
+::-moz-placeholder {
+    font-family: 'Lato', sans-serif;
+}
+:-ms-input-placeholder {
+    font-family: 'Lato', sans-serif;
+}
+
+  .map
+  {
+
+    .text
+    {
+      margin-bottom: 20px;
+      i
+      {
+          color: $red;
+      }
+    }
+  }
+
+}
+
+@include breakpoint($medium)
+{
+
+  .contact
+  {
+    @include span(12 of 12);
+    margin-bottom: 20px;
+    .informations
+    {
+      @include span(3 of 12);
+      text-align: left;
+    }
+
+    .contact_form
+    {
+      @include span(9 of 12);
+      float: right;
+      margin-top: 0;
+    }
+  }
+
+  .map
+  {
+
+    .text
+    {
+
+    }
+  }
+
+
+}

@@ -1,0 +1,33 @@
+<%= render partial: 'admin_partials/index/header', locals: { section_title:  t("controller."+params[:controller]),
+                                                  section_sub_title:  t("action."+params[:action]),
+                                                  page_title: t("strings.law.listing") ,
+                                                  new_path: new_law_path,
+                                                  new_button_name: t("strings.law.new"),
+                                                  search_form_path: laws_path } %>
+
+<%= render "admin_partials/errors/notices" %>
+
+        <div class="box-body table-responsive no-padding">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th><%= t 'activerecord.attributes.law.title' %></th>
+                <th><%= t 'activerecord.attributes.law.description' %></th>
+                <th><%= t 'activerecord.attributes.law.url' %></th>
+                <th colspan="3"></th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <% @laws.each do |law| %>
+                <tr>
+                  <td><%= law.title %></td>
+                  <td><%= law.description %></td>
+                  <td><%= law.url %></td>
+                  <%= render partial: 'admin_partials/index/buttons', locals: { object: law, edit_path: edit_law_path(law) } %>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div><!-- /.box-body -->
+<%= render partial: 'admin_partials/index/footer', locals: { paginate_object: @law} %>

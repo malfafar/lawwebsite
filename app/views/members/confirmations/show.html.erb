@@ -1,0 +1,26 @@
+<!-- # app/views/confirmations/show.html.erb -->
+<%= render partial: 'general_partials/title', locals: { section_title:  "Ativar conta", fa_icon: "fa-unlock-alt" } %>
+
+
+<div class="credentials_page">
+  <%= form_for resource, :as => resource_name, :url => update_member_confirmation_path, :html => {:method => 'patch'}, :id => 'activation-form' do |f| %>
+    <%= render partial: 'general_partials/layout/errors', locals: {devise_error_messages: devise_error_messages! } %>
+      <% if @requires_password %>
+          <div class="field">
+            <%= f.label :password, 'Password: ' %><br>
+            <%= f.password_field :password, class: "text_input" %>
+          </div>
+          <div class="field">
+            <%= f.label :password_confirmation, 'Confirmar Password: ' %><br>
+            <%= f.password_field :password_confirmation, class: "text_input" %>
+          </div>
+      <% end %>
+      <%= hidden_field_tag :confirmation_token, @confirmation_token %>
+      <div class="actions center">
+        <%= f.submit "Recuperar password", class: "secundary_button medium_button" %>
+      </div>
+      <div class="center">
+        <%= render "members/shared/links" %>
+      </div>
+  <% end %>
+</div>

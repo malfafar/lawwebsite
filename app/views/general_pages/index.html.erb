@@ -1,0 +1,59 @@
+<%= content_for :outside_before_container do %>
+  <section id="header_home">
+    <div class="container">
+      <h1>Verba Volent, Scripta Manent</h1>
+      <hr>
+      <div class="text">
+        Associação Sindical dos Conservadores dos Registos
+      </div>
+    </div>
+  </section>
+  <section id="about_us_home">
+    <div class="container">
+      <div id="logo_intro"><%= image_tag 'shield-conservadores.png' %></div>
+      <div id="text_intro">
+        <h2> A Associação </h2>
+        <p>Damos as boas vindas ao sítio da Internet da Associação dos Conservadores dos Registos.<br>
+  Aqui encontrarão informação que permita melhor conhecer a função dos Conservadores dos Registos e da actividade registal.<br>
+Os sistemas jurídicos de registo, de pessoas e de direitos, porque funcionam ao nível da prevenção de conflitos, contribuem para a promoção da paz e da coesão, ponto de partida para o desenvolvimento económico-social sustentável e equitativo.
+Os cidadãos podem contar com um corpo de profissionais qualificados, dedicados e responsáveis.</p>
+<p style="text-align:right;">A Presidente da Direcção, Margarida Martins</p>
+
+      </div>
+    </div>
+  </section>
+
+
+  <section id="news_home">
+    <div class="container">
+
+      <h2>
+        <span class="fa-stack">
+          <i class="fa fa-circle fa-stack-2x"></i>
+          <i class="fa fa-newspaper-o fa-stack-1x fa-inverse"></i>
+        </span>
+        NOTÍCIAS
+      </h2>
+
+      <div class="news_panel">
+        <% @posts.each do |post| %>
+          <div class="news_post">
+            <div class="image_wrapper">
+              <%= image_tag post.image.url(:medium) %>
+            </div>
+
+            <h4><%= post.title %></h4>
+            <p class="news_description">
+              <%= truncate(post.description, length: 100) %>
+            </p>
+
+
+            <%= link_to "ver mais", gp_post_path(post), class: "right" %>
+
+          </div>
+        <% end %>
+      </div>
+
+    </div>
+  </section>
+<% end %>

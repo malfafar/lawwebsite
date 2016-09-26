@@ -1,0 +1,16 @@
+<%# The stylesheets for this file are on the laws.scss file %>
+
+<%= render partial: 'general_partials/title', locals: { section_title: t('strings.header.laws.title'), fa_icon: "fa-gavel" } %>
+
+
+<% @laws.each do |law| %>
+  <div class="law_informations">
+      <div class="informations"><p class="title"><%= law.title %></p><p class="description"><%= law.description %></p></div>
+
+      <%= link_to law.url.include?("http") ? law.url : "http://"+law.url, class: "download_link", target: "_blank" do %>
+         <i class="fa fa-download"></i> Download
+      <% end %>
+
+  </div>
+<% end %>
+<%= paginate @laws %>

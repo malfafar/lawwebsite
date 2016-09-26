@@ -1,0 +1,20 @@
+
+<%= render partial: 'general_partials/title', locals: { section_title:  "Instruções de confirmação", fa_icon: "fa-unlock-alt" } %>
+
+<div class="credentials_page">
+  <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
+    <%= render partial: 'general_partials/layout/errors', locals: {devise_error_messages: devise_error_messages! } %>
+
+    <div class="field">
+      <%= f.label :email %><br />
+      <%= f.email_field :email, autofocus: true, value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email), class: "text_input" %>
+    </div>
+
+    <div class="actions center">
+      <%= f.submit "Enviar", class: "secundary_button medium_button" %>
+    </div>
+    <div class="center">
+      <%= render "members/shared/links" %>
+    </div>
+  <% end %>
+</div>

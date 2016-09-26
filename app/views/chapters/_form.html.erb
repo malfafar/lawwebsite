@@ -1,0 +1,62 @@
+<div class="box-body">
+  <%= form_for(@chapter) do |f| %>
+    <% if @chapter.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@chapter.errors.count, "error") %> prohibited this chapter from being saved:</h2>
+
+        <ul>
+        <% @chapter.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="form-group">
+      <%= f.label :title %><br>
+      <%= f.text_area :title, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :number %><br>
+      <%= f.number_field :number, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :text %><br>
+      <!-- Alterar Styles no Javascript -->
+      <%= f.text_area :text, class: "form-control", id: "chapter-edit" %>
+    </div>
+    <div class="box-footer">
+      <%= f.submit   class: "btn btn-primary"%>
+    </div>
+  <% end %>
+
+
+  <script>
+    /* Alterar Styles dos Titulos do Capitulo */
+
+    var tinymce_options = {
+      selector: '#chapter-edit',
+      height: 500,
+      plugins: ['advlist autolink lists paste'],
+      toolbar: 'styleselect | bullist numlist ',
+      menubar:false,
+      language: 'pt_PT',
+      entity_encoding : 'raw',
+      statusbar: true,
+      paste_as_text: true,
+      style_formats_merge: false,
+      style_formats: [
+        { title: 'Normal Text', block: 'p', classes: null},
+        { title: 'Secção', block: 'h2', classes: 'section'},
+        { title: 'Artigo', block: 'h3', classes: 'article'}
+      ]
+     }
+
+    $(document).on('ready page:load', function(){
+      // console.log($.fn.wysihtml5.defaultOptions);
+      // $.fn.wysihtml5.defaultOptions.toolbar.fa = true;
+      // console.log("OI");
+      tinymce.init(tinymce_options);
+    });
+
+  </script>

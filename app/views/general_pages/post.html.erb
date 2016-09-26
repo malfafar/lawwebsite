@@ -1,0 +1,31 @@
+<%# Stylesheets for this page are on partials/news.scss %>
+
+<%= render partial: 'general_partials/title', locals: { section_title: t('strings.header.posts.title'), fa_icon: "fa-newspaper-o" } %>
+
+
+<% if @post.image.exists? %>
+
+<% end %>
+
+<div class="post_title">
+  <h2><%= @post.title %></h2>
+  <div class="post_info">
+    <p class="highlight "> <i class="fa fa-calendar"></i> Criado a <%= @post.created_at.strftime("%d/%m/%Y") %></p><p class="highlight">  <i class="fa fa-calendar-check-o"></i> Última alteração a <%= @post.updated_at.strftime("%d/%m/%Y") %></p>
+  </div>
+</div>
+<div class="post_image">
+  <%= image_tag @post.image.url(:original) %>
+</div>
+
+<div class="post_description">
+    <p>
+      <%= simple_format(@post.description) %>
+    </p>
+</div>
+
+
+<% if @post.document.exists? %>
+  <div class="post_document">
+    <%= link_to @post.document_file_name, @post.document.url %>
+  </div>
+<% end %>

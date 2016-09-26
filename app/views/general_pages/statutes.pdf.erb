@@ -1,0 +1,43 @@
+<%#= wicked_pdf_stylesheet_link_tag "application" %>
+<head>
+<title>Estatutos - ASCR</title>
+</head>
+<style>
+  h1,h2,h3,h4,h5,a
+  {
+    letter-spacing: normal;
+  }
+
+  .chapter
+  {
+    width: 100%;
+    text-align: center;
+    background-color: #F2F2F2;
+    color: #000000;
+    font-size: 26px;
+  }
+
+  h2.section
+  {
+    font-size: 28px !important;
+    font-weight: 700;
+    color: #222124;
+    /*letter-spacing: 1px;*/
+  }
+
+  h3.article
+  {
+    font-size: 20px;
+    font-weight: 600;
+    color: #222124;
+    /*letter-spacing: 1px;*/
+  }
+</style>
+<%# <div class="container"> %>
+  <% @chapters.each do |chapter| %>
+    <br>
+    <p class="chapter"><%= "Capitulo " + RomanNumerals.to_roman(chapter.number) +  " - " + chapter.title %></p>
+    <br>
+    <%= chapter.text.html_safe %>
+  <% end %>
+<%# </div> %>

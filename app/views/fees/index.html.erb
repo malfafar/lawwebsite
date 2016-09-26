@@ -1,0 +1,32 @@
+<%= render partial: 'admin_partials/index/header', locals: { section_title:  t("controller."+params[:controller]),
+                                                  section_sub_title:  t("action."+params[:action]),
+                                                  page_title: t("strings.fee.listing") ,
+                                                  new_path: new_fee_path,
+                                                  new_button_name: t("strings.fee.new"),
+                                                  search_form_path: fees_path } %>
+
+<%= render "admin_partials/errors/notices" %>
+
+        <div class="box-body table-responsive no-padding">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th><%= t 'activerecord.attributes.fee.name' %></th>
+                <th><%= t 'activerecord.attributes.fee.value' %></th>
+                <th colspan="3"></th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <% @fees.each do |fee| %>
+                <tr>
+                  <td><%= fee.name %></td>
+                  <td><%= fee.value %></td>
+                  <%= render partial: 'admin_partials/index/buttons', locals: { object: fee, edit_path: edit_fee_path(fee) } %>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div><!-- /.box-body -->
+
+<%= render partial: 'admin_partials/index/footer', locals: { paginate_object: @fees} %>

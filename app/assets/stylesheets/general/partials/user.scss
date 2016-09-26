@@ -1,0 +1,190 @@
+@include breakpoint($xs)
+{
+
+  // PROFILE AND EDIT PROFILE
+    .relative
+    {
+        position: relative;
+    }
+    .personal_informations
+    {
+      overflow: visible;
+      display: inline-block;
+      margin-top: 30px;
+      border-bottom: 1px solid $light_gray;
+      min-height: 600px;
+      h2
+      {
+        margin-top: 0px;
+      }
+      .info_block
+      {
+        @include span(6 of 12);
+        margin-bottom: 15px;
+
+        p
+        {
+          margin-top: 0;
+        }
+
+        label
+        {
+          font-size: 12px;
+          font-weight: $semi_bold_font;
+          color: $text_highlight;
+          margin: 0px;
+          text-transform: uppercase;
+        }
+      }
+    }
+
+    .registry_informations
+    {
+      overflow: visible;
+      display: inline-block;
+      border-bottom: 1px solid $light_gray;
+
+      .info_block
+      {
+        @include span(6 of 12);
+        margin-bottom: 15px;
+
+        p
+        {
+          margin-top: 0;
+        }
+
+        label
+        {
+          font-size: 12px;
+          font-weight: $semi_bold_font;
+          color: $text_highlight;
+          margin: 0px;
+          text-transform: uppercase;
+        }
+      }
+
+    }
+
+    .carreer_informations
+    {
+      overflow: visible;
+      display: inline-block;
+      margin-top: 30px;
+      min-width: 100%;
+      .info_block
+      {
+        @include span(6 of 12);
+        margin-bottom: 15px;
+
+        p
+        {
+          margin-top: 0;
+        }
+
+        label
+        {
+          font-size: 12px;
+          font-weight: $semi_bold_font;
+          color: $text_highlight;
+          margin: 0px;
+          text-transform: uppercase;
+        }
+      }
+    }
+
+    .passwords
+    {
+      overflow: visible;
+      display: inline-block;
+      min-width: 100%;
+      .info_block
+      {
+        @include span(6 of 12);
+
+        label
+        {
+          font-size: 12px;
+          font-weight: $semi_bold_font;
+          color: $text_highlight;
+          margin: 0px;
+          text-transform: uppercase;
+        }
+      }
+    }
+
+    .edit_link
+    {
+      margin-bottom: 50px;
+    }
+
+  // New Session (sign in)
+  .credentials_page
+  {
+    @include span(40 of 48);
+    // margin-left: span(8 of 48);
+    margin-top: 30px;
+    background-color: $light_gray;
+    padding-left: span(4 of 48);
+    padding-right: span(4 of 48);
+    padding-top: 30px;
+    padding-bottom: 30px;
+    form
+    {
+      width: 100%;
+
+      input.text_input
+      {
+        width: 100%;
+      }
+    }
+
+    label
+    {
+      font-size: 12px;
+      font-weight: $semi_bold_font;
+      color: $text_highlight;
+      margin: 0px;
+      text-transform: uppercase;
+    }
+  }
+
+
+  // New Registration (sign up)
+
+
+  // Confirmations
+
+
+  // Password recovery
+
+
+}
+
+@include breakpoint($medium)
+{
+  .credentials_page
+  {
+    @include span(22 of 48);
+    margin-left: span(8 of 48);
+    form
+    {
+      width: 100%;
+
+      input.text_input
+      {
+        width: 100%;
+      }
+    }
+
+    label
+    {
+      font-size: 12px;
+      font-weight: $semi_bold_font;
+      color: $text_highlight;
+      margin: 0px;
+      text-transform: uppercase;
+    }
+  }
+
+}

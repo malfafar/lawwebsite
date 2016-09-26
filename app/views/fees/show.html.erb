@@ -1,0 +1,19 @@
+<%= render partial: 'admin_partials/show/header', locals: { section_title:  t("controller."+params[:controller]),
+                                                  section_sub_title:  t("action."+params[:action]),
+                                                  page_title: t("strings.fee.show")  } %>
+
+<%= render "admin_partials/errors/notices" %>
+
+
+    <strong><%= t 'activerecord.attributes.law.value' %></strong>
+    <p class="text-muted">
+      <%= @fee.value %>
+    </p>
+
+
+    <strong><%= t 'activerecord.attributes.law.name' %></strong>
+    <p class="text-muted">
+      <%= @fee.name %>
+    </p>
+
+<%= render partial: 'admin_partials/show/footer', locals: {edit_path: edit_fee_path(@fee), back_path: fees_path}%>

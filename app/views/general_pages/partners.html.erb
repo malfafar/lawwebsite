@@ -1,0 +1,15 @@
+<%# Stylesheets for this page are on partials/partners.scss %>
+
+<%= render partial: 'general_partials/title', locals: { section_title: t('strings.header.partners.title'), fa_icon: "fa-university" } %>
+
+<div class="partner_panel">
+  <% @partners.each do |partner| %>
+    <div class="partner">
+      <%= image_tag partner.image.url(:medium), width: "200px", height: "200px" %>
+      <p><%= link_to partner.name, partner.url.include?("http") ? partner.url : "http://"+partner.url %></p>
+      <p><%= partner.description %></p>
+    </div>
+  <% end %>
+</div>
+
+<%= paginate @partners %>

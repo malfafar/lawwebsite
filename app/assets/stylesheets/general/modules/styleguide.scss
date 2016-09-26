@@ -1,0 +1,415 @@
+/* Page */
+html
+{
+
+}
+
+body
+{
+	font-family: 'Lato', sans-serif;
+	color: $text_dark;
+	overflow-x: hidden;
+	// line-height: 1.4em;
+}
+
+form
+{
+	display: inline-block;
+	width: 100%;
+}
+
+input
+{
+	outline: none;
+	background-color: $white;
+	border: 2px solid $semi_soft_gray;
+	// line-height: 30px;
+	border-top: 0px;
+	border-left: 0px;
+	border-right: 0px;
+	margin-bottom: 30px;
+}
+
+a, a:hover, a:visited, a:link, a:active
+{
+    text-decoration: none;
+		color: $red;
+		font-weight: $semi_bold_font;
+}
+
+a:hover
+{
+   cursor: pointer;
+	 text-decoration: underline;
+}
+
+textarea:focus
+{
+	outline: none;
+}
+/* Fixed classes */
+.relative
+{
+	position: relative;
+}
+
+.center
+{
+	text-align: center;
+}
+
+.min_width_full
+{
+	min-width: 100%;
+}
+
+.left
+{
+	text-align: left;
+	float: left;
+}
+
+.right
+{
+	text-align: right;
+	float: right;
+}
+
+.highlight
+{
+	color: $text_highlight;
+}
+
+.text_input
+{
+	width: 95%;
+	padding: 10px 0px;
+}
+
+.text_area_input
+{
+	width: 97%;
+	height: 100px;
+}
+
+.white_space_nav
+{
+	height: 96px;
+}
+
+
+.custom_pagination
+{
+	padding-top: 30px;
+// 	.first a, .last a
+// 	{
+// 		color: blue !important;
+// 	}
+//
+// 	.previous a, .next a
+// 	{
+// 		color: green !important;
+// 	}
+}
+
+// // DATEPICKER
+// .picker__input--active
+// {
+// 	color: red;
+// }
+
+.picker__day--today
+{
+	background: $red !important;
+	border-color: $red !important;
+}
+
+.picker__day--today:before {
+    content: " ";
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    width: 0;
+    height: 0;
+    border-top: 0.5em solid $dark_red;
+    border-left: .5em solid transparent;
+}
+
+.picker__button--today:before {
+    top: -0.05em;
+    width: 0;
+    border-top: 0.66em solid $dark_red;
+    border-left: .66em solid transparent;
+}
+/* Text */
+h1
+{
+	font-size: 36px;
+	font-weight: $semi_bold_font;
+	color: $text_dark;
+	letter-spacing: 0px;
+	text-transform: uppercase;
+	text-align: left;
+
+	.fa-lg
+	{
+		font-size: 40px;
+	}
+}
+
+h2
+{
+	font-size: 40px;
+	font-weight: $bold_font;
+	color: $text_dark;
+	letter-spacing: 0px;
+}
+
+h3
+{
+	font-size: 26px;
+	font-weight: $normal_font;
+	color: $text_white;
+	text-transform: uppercase;
+}
+
+h4
+{
+	font-size: 12px;
+	font-weight: $semi_bold_font;
+	color: $text_highlight;
+	margin: 0px;
+	text-transform: uppercase;
+}
+
+h5
+{
+	font-size: 14px;
+	font-weight: $normal_font;
+	color: $text_dark;
+	margin: 0px;
+}
+
+p
+{
+	font-size: 14px;
+	font-weight: $normal_font;
+	color: $text_dark;
+	line-height: 1.5em !important;
+}
+
+textarea
+{
+	border: 2px solid $semi_soft_gray;
+	resize: none;
+	font-size: 12px;
+	font-family: 'Lato', sans-serif;
+	padding: 5px;
+
+}
+
+
+@include breakpoint($xs)
+{
+		h1
+		{
+			font-size: 26px;
+			font-weight: $semi_bold_font;
+			color: $text_dark;
+			letter-spacing: 0px;
+			text-transform: uppercase;
+
+			.fa-lg
+			{
+				font-size: 18px;
+			}
+		}
+		.title_header
+		{
+			background-color: $light-gray;
+			line-height: 50px;
+
+			text-align: center;
+
+		}
+
+		.container
+		{
+			display: inline-block;
+			@include span(18 of 20);
+			margin-left: span(1 of 20);
+			margin-right: span(1 of 20);
+			padding-top: 30px;
+			padding-bottom: 30px;
+			float: none;
+		}
+
+		.pagination
+		{
+
+		}
+		/* Buttons */
+		.primary_button
+		{
+
+			border: none;
+			background-color: $primary_button_background;
+			color: $primary_button_text !important;
+			font-weight: $normal_font;
+			border-radius: 3px;
+			box-shadow: 0px 2px 0px $dark_gray;
+			cursor: pointer;
+			border-bottom: 0px !important;
+		}
+
+		.primary_button:hover
+		{
+			background-color: $dark_gray;
+			text-decoration: none;
+		}
+
+		.secundary_button
+		{
+			border: none;
+			background-color: $red;
+			color: $primary_button_text !important;
+			font-weight: $normal_font;
+			border-radius: 3px;
+			box-shadow: 0px 2px 0px $dark_red;
+			cursor: pointer;
+			border-bottom: 0px !important;
+		}
+
+		.secundary_button:hover
+		{
+			background-color: $dark_red;
+			text-decoration: none;
+		}
+
+		.danger_button
+		{
+			border: none;
+			background-color: $dark_red;
+			color: $primary_button_text !important;
+			font-weight: $normal_font;
+			border-radius: 3px;
+			box-shadow: 0px 2px 0px $dark_gray;
+			cursor: pointer;
+			border-bottom: 0px !important;
+
+		}
+
+		.danger_button:hover
+		{
+			background-color: $darker_red;
+			text-decoration: none;
+		}
+
+		.small_button
+		{
+			cursor: pointer;
+			padding: 6px 30px 5px 30px;
+			font-size: 0.8em;
+			text-transform: uppercase;
+			a{
+				text-transform: uppercase;
+			}
+		}
+
+		.medium_button
+		{
+			cursor: pointer;
+			padding: 11px 40px 10px 40px;
+			font-size: 1em;
+			text-transform: uppercase;
+			a{
+				text-transform: uppercase;
+			}
+		}
+
+		.large_button
+		{
+			cursor: pointer;
+			padding: 16px 40px 15px 40px;
+			font-size: 1.2em;
+			text-transform: uppercase;
+			a{
+				text-transform: uppercase;
+			}
+		}
+
+}
+
+@include breakpoint($medium)
+{
+	h1
+	{
+		font-size: 36px;
+		font-weight: $semi_bold_font;
+		color: $text_dark;
+		letter-spacing: 0px;
+		text-transform: uppercase;
+
+		.fa-lg
+		{
+			font-size: 30px;
+		}
+	}
+	.title_header
+	{
+		background-color: $light-gray;
+		line-height: 50px;
+
+		text-align: left;
+
+	}
+
+	.container
+	{
+		display: inline-block;
+		@include span(12 of 20);
+		margin-left: span(4 of 20);
+		margin-right: span(4 of 20);
+		float: none;
+	}
+}
+
+
+.box_input
+{
+	line-height: 30px;
+}
+
+.error_explanation
+{
+	h2
+	{
+		font-size: 20px;
+		font-weight: $normal_font;
+	}
+}
+
+
+.white_space
+{
+	height: 300px;
+	width: 100%;
+}
+
+
+.notice
+{
+	font-size: 14px;
+  text-align: center;
+  margin-bottom: 30px;
+	color: $red;
+}
+
+
+.alert
+{
+	font-size: 14px;
+  text-align: center;
+  margin-bottom: 30px;
+	color: $red;
+}

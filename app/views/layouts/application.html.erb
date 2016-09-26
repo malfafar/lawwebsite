@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ASCR - Associação Sindical dos Conservadores dos Registos</title>
+  <%= favicon_link_tag 'favicon.ico' %>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+
+  <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+  <%= csrf_meta_tags %>
+</head>
+  <body>
+
+    <%= render 'general_partials/layout/header' %>
+
+    <%= yield :title %>
+
+    <div id="wrapper">
+
+      <%#= The pages with this content for will not be wrapped in the container %>
+      <%= yield :outside_before_container %>
+
+      <div class="container">
+        <%= yield %>
+      </div>
+
+      <%= yield :outside_after_container %>
+    </div>
+
+
+
+    <%= render 'general_partials/layout/pre_footer' %>
+
+    <%= render 'general_partials/layout/footer' %>
+
+  </body>
+  <%= yield :javascript_block %>
+
+  <script>
+   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+   })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+   ga('create', 'UA-81272467-1', 'auto');
+   ga('send', 'pageview');
+
+  </script>
+</html>

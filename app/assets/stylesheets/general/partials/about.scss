@@ -1,0 +1,25 @@
+
+
+@include breakpoint($xs)
+{
+
+
+}
+
+
+
+@include breakpoint($medium)
+{
+  .social_body_name
+  {
+    font-weight: $bold_font;
+    font-size: 14px;
+  }
+
+  .social_body_position
+  {
+    margin-top: 3px;
+    font-size: 12px;
+  }
+
+}

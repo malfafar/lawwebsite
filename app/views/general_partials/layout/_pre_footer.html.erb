@@ -1,0 +1,25 @@
+<!-- The styles for this partial are on the footer.scss file -->
+
+<section class="pre_footer">
+  <div class="container">
+    <h3>
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa <%= "fa-institution" %> fa-stack-1x fa-inverse"></i>
+      </span>
+      Ligações externas
+    </h3>
+    <% @home_partners.each do | partner | %>
+      <div class="home_link">
+        <%= link_to partner.url.include?("http") ? partner.url : "http://"+partner.url do %>
+          <%= image_tag partner.image.url(:thumb) %>
+        <% end %>
+      </div>
+    <% end %>
+    <% if @show_more_button %>
+      <!-- <div class=" link_to_more"> -->
+        <%= link_to "Ver mais", gp_partners_path, class: "primary_button medium_button right link_to_more"  %>
+      <!-- </div> -->
+    <% end %>
+  </div>
+</section>

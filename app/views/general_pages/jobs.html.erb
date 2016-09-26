@@ -1,0 +1,13 @@
+<%# Stylesheets for this page are on partials/jobs.scss %>
+
+<%= render partial: 'general_partials/title', locals: { section_title: t('strings.header.jobs.title'), fa_icon: "fa-pencil" } %>
+
+  <% @jobs.each do |job| %>
+    <%= link_to gp_job_path(job) do %>
+      <div class="job">
+        <i class="fa fa-file-text-o fa-2x"></i><p><%= job.name %></p>
+      </div>
+    <% end %>
+  <% end %>
+
+<%= paginate @jobs %>

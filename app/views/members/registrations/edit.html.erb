@@ -1,0 +1,180 @@
+<%# The styles for this page are on the file partials/profile.scss %>
+<%= render partial: 'general_partials/title', locals: { section_title:  t('strings.header.profile.title'), fa_icon: "fa-user" } %>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <%= render partial: 'general_partials/layout/errors', locals: {devise_error_messages: devise_error_messages! } %>
+
+
+  <div class="personal_informations">
+
+    <h2> Informações Pessoais </h2>
+    <div class="field info_block">
+      <%= f.label :email %>*<br />
+      <%= f.email_field :email, autofocus: true, required: true, class: "text_input"    %>
+    </div>
+
+    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+      <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+    <% end %>
+
+    <div class="field info_block">
+      <%= f.label :name %>*<br>
+      <%= f.text_field :name, required: true, class: "text_input"   %>
+    </div>
+
+    <div class="field info_block">
+      <%= f.label :membership_number %><br>
+      <%= f.number_field :membership_number, class: "text_input"  %>
+    </div>
+
+    <div class="field info_block relative">
+      <%= f.label :birthday %><br>
+      <%= f.text_field :birthday, id: 'birthday', class: "text_input" , data: { date_format: 'DD/MM/YYYY'} %>
+    </div>
+
+    <div class="field info_block">
+      <%= f.label :naturality%>*<br>
+      <%= f.text_field :naturality, required: true, class: "text_input"   %>
+    </div>
+
+    <div class="field info_block">
+      <%= f.label :residence %>*<br>
+      <%= f.text_area :residence, required: true, class: "text_area_input"   %>
+    </div>
+
+    <div class="field info_block">
+      <%= f.label :zip_code%><br>
+      <%= f.text_field :zip_code, class: "text_input"  %>
+    </div>
+
+    <div class="field info_block">
+      <%= f.label :phone %><br>
+      <%= f.text_field :phone, class: "text_input"  %>
+    </div>
+  </div>
+
+
+  <div class="registry_informations">
+
+    <h2> Informações de Conservatória </h2>
+    <div class="field info_block">
+      <%= f.label :office %>*<br>
+      <%= f.text_field :office, required: true, class: "text_input" %>
+    </div>
+
+    <div class="field info_block">
+      <%= f.label :office_email %>*<br>
+      <%= f.email_field :office_email, class: "text_input" %>
+    </div>
+
+    <div class="field info_block">
+      <%= f.label :office_address %>*<br>
+      <%= f.text_field :office_address, required: true, class: "text_input"  %>
+    </div>
+
+    <div class="field info_block">
+      <%= f.label :office_zipcode %>*<br>
+      <%= f.text_field :office_zipcode, required: true, class: "text_input"  %>
+    </div>
+
+    <div class="field info_block">
+      <%= f.label :attached_registry %><br>
+      <%= f.check_box :attached_registry %>
+    </div>
+
+    <div class="field info_block">
+      <%= f.label :office_phone %>*<br>
+      <%= f.text_field :office_phone, required: true, class: "text_input"  %>
+    </div>
+
+    <div class="field info_block">
+      <%= f.label :office_fax %><br>
+      <%= f.text_field :office_fax, class: "text_input"  %>
+    </div>
+
+    <div class="field info_block">
+      <%= f.label :location_class %>*<br>
+      <%= f.text_field :location_class, required: true, class: "text_input"  %>
+    </div>
+  </div>
+
+  <div class="carreer_informations">
+    <h2> Informações de Carreira </h2>
+
+    <div class="field info_block relative">
+      <%= f.label :career_start_date %><br>
+      <%= f.text_field :career_start_date, id: "career-start-date", class: "text_input"   , data: { date_format: 'DD/MM/YYYY'} %>
+    </div>
+
+    <div class="field info_block">
+      <%= f.label :personal_class %>*<br>
+      <%= f.text_field :personal_class, required: true, class: "text_input"  %>
+    </div>
+
+    <div class="field info_block relative">
+      <%= f.label :class_promotion_date %><br>
+      <%= f.text_field :class_promotion_date, id: "class-promotion-date", class: "text_input"  , data: { date_format: 'DD/MM/YYYY'} %>
+    </div>
+
+    <div class="field info_block">
+      <%= f.label :practice_level %>*<br>
+      <%= f.text_field :practice_level, required: true, class: "text_input"  %>
+    </div>
+
+    <div class="field info_block relative">
+      <%= f.label :level_start_date %><br>
+      <%= f.text_field :level_start_date, id: "level-start-date", class: "text_input" , data: { date_format: 'DD/MM/YYYY'} %>
+    </div>
+  </div>
+
+  <div class="passwords">
+    <h2> Passwords</h2>
+
+    <div class="field info_block">
+      <%= f.label :password %> <i>(deixe em branco caso não queira alterar)</i><br />
+      <%= f.password_field :password, autocomplete: "off", class: "text_input"  %>
+    </div>
+
+    <div class="field info_block">
+      <%= f.label :password_confirmation %><br />
+      <%= f.password_field :password_confirmation, autocomplete: "off", class: "text_input"  %>
+    </div>
+
+    <div class="field info_block">
+      <%= f.label :current_password %> <i>(precisamos da password actual para efectuar alterações)</i><br />
+      <%= f.password_field :current_password, autocomplete: "off", class: "text_input"  %>
+    </div>
+  </div>
+
+  <div class="center">
+    <%= f.submit "Actualizar", class: "secundary_button large_button" %>
+    <%= link_to "Voltar", gp_profile_path, class: "danger_button large_button", id: "profile_back_button"%>
+  </div>
+<% end %>
+
+
+<script>
+$(document).on("ready page:load", function () {
+  var settings_datetimepicker = {
+    // format: "dd/mm/yyyy",
+    locale: 'pt',
+    tooltips: {
+        today: 'Go to today',
+        clear: 'Clear selection',
+        close: 'Close the picker',
+        selectMonth: 'Select Month',
+        selectYear: 'Select Year',
+    },
+    showTodayButton: true,
+    showClear: true,
+    showClose: true,
+    debug: false
+  }
+
+
+  $('#birthday').datetimepicker(settings_datetimepicker);
+  $('#career-start-date').datetimepicker(settings_datetimepicker);
+  $('#class-promotion-date').datetimepicker(settings_datetimepicker);
+  $('#level-start-date').datetimepicker(settings_datetimepicker);
+});
+</script>

@@ -1,0 +1,33 @@
+<%= render partial: 'admin_partials/show/header', locals: { section_title:  t("controller."+params[:controller]),
+                                                  section_sub_title:  t("action."+params[:action]),
+                                                  page_title: t("strings.post.show")  } %>
+
+<%= render "admin_partials/errors/notices" %>
+
+
+          <strong><%= t 'activerecord.attributes.post.title' %></strong>
+          <p class="text-muted">
+            <%= @post.title %>
+          </p>
+
+          <strong><%= t 'activerecord.attributes.post.description' %></strong>
+          <p class="text-muted">
+            <%= @post.description %>
+          </p>
+
+
+          <% if @post.image.exists? %>
+            <strong><%= t 'activerecord.attributes.post.image' %></strong>
+            <p class="text-muted">
+              <%= image_tag @post.image.url(:medium) %>
+            </p>
+          <% end %>
+
+
+          <% if @post.document.exists? %>
+            <strong><%= t 'activerecord.attributes.post.document' %></strong>
+            <p class="text-muted">
+              <%= link_to @post.document_file_name, @post.document.url %>
+            </p>
+          <% end %>
+<%= render partial: 'admin_partials/show/footer', locals: {edit_path: edit_post_path(@post), back_path: posts_path}%>

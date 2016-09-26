@@ -1,0 +1,30 @@
+<%= render partial: 'admin_partials/index/header', locals: { section_title:  t("controller."+params[:controller]),
+                                                  section_sub_title:  t("action."+params[:action]),
+                                                  page_title: t("strings.categorys.listing") ,
+                                                  new_path: new_category_path,
+                                                  new_button_name: t("strings.category.new"),
+                                                  search_form_path: nil } %>
+
+<%= render "admin_partials/errors/notices" %>
+
+        <div class="box-body table-responsive no-padding">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th><%= t 'activerecord.attributes.category.name' %></th>
+                <th colspan="3"></th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <% @categories.each do |category| %>
+                <tr>
+                  <td><%= category.name %></td>
+                  <%= render partial: 'admin_partials/index/buttons', locals: { object: category, edit_path: edit_category_path(category) } %>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div><!-- /.box-body -->
+
+<%= render partial: 'admin_partials/index/footer', locals: { paginate_object: @categories} %>

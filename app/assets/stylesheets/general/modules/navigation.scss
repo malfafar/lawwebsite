@@ -1,0 +1,276 @@
+/* Navigation */
+@include breakpoint($xs)
+{
+	.menu
+	{
+		position: absolute;
+		z-index: 999;
+		@include span(12 of 12);
+		background-color: $nav_background;
+
+		.logo_burgermenu
+		{
+			@include span(5 of 24);
+			margin-left: span(1 of 24);
+		}
+
+		li.login_btn:hover
+		{
+			a
+			{
+				background: $white;
+				border: 0px;
+				box-shadow: 0px;
+				color: $text_dark !important;
+			}
+		}
+
+		li.signup_btn:hover
+		{
+			a
+			{
+				background: $white;
+				border: 0px;
+				box-shadow: 0px;
+				color: $text_dark !important;
+			}
+		}
+
+		li.signout_btn:hover
+		{
+			a
+			{
+				background: $white;
+				border: 0px;
+				box-shadow: 0px;
+				color: $text_dark !important;
+			}
+		}
+
+
+		li.login_btn
+		{
+			a
+			{
+				text-transform: uppercase;
+			}
+		}
+
+		li.signup_btn
+		{
+			a
+			{
+				text-transform: uppercase;
+			}
+		}
+
+		li.signout_btn
+		{
+			a
+			{
+				text-transform: uppercase;
+			}
+		}
+	}
+
+	.active_menu
+	{
+		-webkit-animation-duration: 0.7s;
+		animation-duration: 0.7s;
+		-webkit-animation-fill-mode: both;
+		animation-fill-mode: both;
+
+		-webkit-animation-name: fadeIn;
+		animation-name: fadeIn;
+		padding: 0;
+
+		margin-top: 15px;
+		display: block !important;
+
+		li
+		{
+			padding-top: 12px;
+			padding-bottom: 12px;
+			background-color: $nav_background;
+			width: 100%;
+			text-align: center;
+			color: $nav_text;
+			font-weight: $normal_font;
+			overflow: hidden;
+
+			a
+			{
+				color: $nav_text;
+			}
+		}
+
+		li:hover
+		{
+			background-color: $nav_burger_hover;
+			color: $text_white;
+
+			a
+			{
+				color: $nav_text_hover !important;
+			}
+		}
+	}
+
+	.nav_bar
+	{
+		margin-bottom: 25px;
+		overflow: auto;
+		overflow-y: hidden;
+	}
+
+	.nav_list
+	{
+		list-style: none;
+    display: none;
+    margin-left: auto;
+    margin-right: auto;
+		font-size: 14px;
+		margin-bottom: 0;
+	}
+
+	.nav_list a
+	{
+    font-weight: $normal_font;
+    color: $nav_text;
+    text-decoration: none;
+	}
+
+	.logo
+	{
+		width: 160px;
+		display: inline-block;
+		text-align: center;
+		margin-bottom: 20px;
+		margin-left: 0px;
+    margin-top: 20px;
+	}
+
+	.burger
+	{
+		@include span(17 of 24);
+		margin-right: span(1 of 24);
+		font-size: 34px;
+    position: relative;
+    text-align: right;
+    padding-top: 20px;
+    display: block;
+    z-index: 100;
+    color: $nav_burger;
+	}
+
+	.burger:hover
+	{
+    cursor: pointer;
+    color: $nav_burger_hover;
+	}
+}
+
+
+@include breakpoint($burger)
+{
+	.nav_bar
+	{
+		margin-bottom: 0px;
+	  height: 60px;
+	  background-color: $nav_background;
+	}
+
+  .nav_list
+  {
+    position: relative !important;
+    display: inline-block;
+    float: right;
+    z-index: 120;
+    margin-right: 40px;
+    padding-top: 10px;
+  }
+
+  .nav_list a
+  {
+    color: $nav_text;
+    z-index: 120;
+		margin-top: 12px;
+  }
+
+  .nav_list a:hover
+  {
+    color: $nav_text_hover;
+    text-decoration: none;
+  }
+
+  .nav_list ul
+  {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    z-index: 100;
+  }
+
+  .nav_list li
+  {
+    margin-right: 15px;
+    display: inline;
+    z-index: 100;
+		text-transform: uppercase;
+		line-height: 50px;
+		font-size: 0.8em;
+		font-weight: $medium_font;
+  }
+
+	.menu
+	{
+		li.login_btn:hover
+		{
+			a
+			{
+				background: $dark_red;
+				border: 0px;
+				box-shadow: 0px;
+				color: $text_white !important;
+			}
+		}
+
+		li.signup_btn:hover
+		{
+			a
+			{
+				background: $dark_gray;
+				border: 0px;
+				box-shadow: 0px;
+				color: $text_white !important;
+			}
+		}
+
+		li.signout_btn:hover
+		{
+			a
+			{
+				background: $dark_red;
+				border: 0px;
+				box-shadow: 0px;
+				color: $text_white !important;
+			}
+		}
+	}
+
+  .underlined
+  {
+    border-bottom: 3px solid $nav_underline;
+  }
+
+  .burger
+	{
+		display: none !important;
+	}
+
+	.logo
+	{
+		margin-left: 70px;
+		display: inline-block;
+	}
+}

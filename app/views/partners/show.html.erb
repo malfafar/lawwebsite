@@ -1,0 +1,30 @@
+<%= render partial: 'admin_partials/show/header', locals: { section_title:  t("controller."+params[:controller]),
+                                                  section_sub_title:  t("action."+params[:action]),
+                                                  page_title: t("strings.partner.show")  } %>
+
+<%= render "admin_partials/errors/notices" %>
+
+
+          <strong><%= t 'activerecord.attributes.partner.name' %></strong>
+          <p class="text-muted">
+            <%= @partner.name %>
+          </p>
+
+          <strong><%= t 'activerecord.attributes.partner.description' %></strong>
+          <p class="text-muted">
+            <%= @partner.description %>
+          </p>
+
+          <strong><%= t 'activerecord.attributes.partner.url' %></strong>
+          <p class="text-muted">
+            <%= @partner.url %>
+          </p>
+
+          <% if @partner.image.exists? %>
+            <strong><%= t 'activerecord.attributes.partner.image' %></strong>
+            <p class="text-muted">
+              <%= image_tag @partner.image.url(:medium) %>
+            </p>
+          <% end %>
+
+<%= render partial: 'admin_partials/show/footer', locals: {edit_path: edit_partner_path(@partner), back_path: partners_path}%>
